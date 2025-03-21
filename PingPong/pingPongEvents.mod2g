@@ -1,0 +1,14 @@
+use pingpong as knowledge.
+
+% This module is handles messages between agents.
+% Obs.: We could also split into different events file as well, one for each agent.
+module pingPongEvents {
+
+    % Process ping messages: print message and update beliefs
+    forall (Agent).sent:(ping)
+        do print("----------- " + Agent + " sent ping") + insert(have_received(ping)).
+    
+    % Process pong messages: print message and update beliefs
+    forall (Agent).sent:(pong)
+        do print("----------- " + Agent + " sent pong") + insert(have_received(pong)).
+}

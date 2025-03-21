@@ -1,0 +1,13 @@
+use pingpong as knowledge.
+exit=never. % or keep running with nogoals
+
+module pong {
+    % Send pong when ping received
+    % "If I believe I've received a ping, then print a message, send a pong back to the pingAgent, update my beliefs and
+    % exit/keep waiting for another ping."
+    if bel(have_received(ping)) then
+        print("----------- pongAgent received PING, sending PONG") + 
+        (pingAgent).send:(pong) +
+        delete(have_received(ping)) +
+        exit-module. % we could also keep on running while waiting for an agent to send a ping 
+}

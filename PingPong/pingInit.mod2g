@@ -1,0 +1,8 @@
+use pingpong as knowledge.
+
+module pingInit {
+	% Initial belief that the agent hasn't sent anything yet
+    if true then insert(have_sent(false)).
+    % initial goal to send a ping message
+    if true then adopt(sent_ping).
+}

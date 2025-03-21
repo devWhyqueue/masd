@@ -1,0 +1,25 @@
+use pingpong as knowledge.
+exit=nogoals. % exit if there are no goals left in the goal base 
+
+module ping {      
+        
+    % Send ping if it has not sent it yet
+    % "If I have the goal to send a ping and I believe I haven't sent one yet, then send a ping to 
+    % the pongAgent, update my beliefs, drop the old goal, and adopt a new goal to wait for a pong."
+    if goal(sent_ping), bel(have_sent(false)) then
+        print("----------- pingAgent will send a PING") + 
+        (pongAgent).send:(ping) +
+        delete(have_sent(false)) +
+        insert(have_sent(true)) +
+        drop(sent_ping) +
+        adopt(wait_for_pong).
+    
+    % Exit when pong received
+    % "If I'm waiting for a pong and I've received one, print a message and drop the wait goal / exit."
+    if goal(wait_for_pong), bel(have_received(pong)) then
+        print("----------- pingAgent received PONG, exiting") +
+        % Force exit or simply drop goal.
+        %exit-module. OR
+        drop(wait_for_pong).
+        
+}

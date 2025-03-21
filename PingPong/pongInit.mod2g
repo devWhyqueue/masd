@@ -1,0 +1,8 @@
+use pingpong as knowledge.
+
+module pongInit {
+	% initializes with the belief that it hasn't sent anything yet.
+	% The idea is that it doesn't have any initial goals because it's 
+	% reactive - it only responds when it receives a ping.
+    if true then insert(have_sent(false)).
+}

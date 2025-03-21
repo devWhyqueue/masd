@@ -1,0 +1,19 @@
+% This file defines the multi-agent system: two agents, specifies which modules they use
+% and sets the launch policy by launching both agents.
+
+define pingAgent as agent {
+    use pingInit as init module.
+    use ping as main module.
+    use pingPongEvents as event module.
+}
+
+define pongAgent as agent {
+    use pongInit as init module.
+    use pong as main module.
+    use pingPongEvents as event module.
+}
+
+launchpolicy {
+    launch pingAgent.
+    launch pongAgent.
+}

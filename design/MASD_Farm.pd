@@ -1,0 +1,5565 @@
+<?xml version="1.0"?>
+
+<jacob version="3.0">
+
+<object type="PrometheusProject" id="0">
+    <field name="projectData">
+	<object type="ProjectData" id="1">
+	    <field name="name">MASD_Farm</field>
+	    <field name="description">Farm multi agent system design</field>
+	    <field name="fileNameLastSavedAs">MASD_Farm.pd</field>
+	    <field name="filePathLastSavedIn">/Users/cecilia/Downloads/downloads/IA/2025-1/MASD/Assignment2</field>
+	    <field name="openedAs">/Users/cecilia/Downloads/downloads/IA/2025-1/MASD/Assignment2/MASD_Farm.pd</field>
+	    <field name="applicationVersion">3.3b_internal</field>
+	</object>
+    </field>
+    <field name="diagramSettings"><list>
+	<object type="DiagramSettings" id="2">
+	    <field name="diagramId">
+		<object type="DiagramId" id="3">
+		    <field name="stringId">Data Coupling</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="4">
+		    <field name="entity">
+			<object type="Data" id="5">
+			    <base type="Entity">
+				<field name="name">CropsDB</field>
+				<field name="description">Stores information about planted crops, their growth, datetime it was irrigated/matured/transported to storage.</field>
+				<field name="uniqueId">134</field>
+			    </base>
+
+			    <field name="dataType">Database</field>
+			    <field name="includedFields"></field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="6">
+			    <field name="x">460</field>
+			    <field name="y">27</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="7">
+		    <field name="entity">
+			<object type="Data" id="8">
+			    <base type="Entity">
+				<field name="name">SoilAPI</field>
+				<field name="description">Provides soil condition information.</field>
+				<field name="uniqueId">135</field>
+			    </base>
+
+			    <field name="dataType">Internal API</field>
+			    <field name="includedFields"></field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="9">
+			    <field name="x">931</field>
+			    <field name="y">75</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="10">
+		    <field name="entity">
+			<object type="Data" id="11">
+			    <base type="Entity">
+				<field name="name">OrdersDB</field>
+				<field name="description">Stores customer order information</field>
+				<field name="uniqueId">136</field>
+			    </base>
+
+			    <field name="dataType">Database</field>
+			    <field name="includedFields"></field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="12">
+			    <field name="x">465</field>
+			    <field name="y">257</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="13">
+		    <field name="entity">
+			<object type="Data" id="14">
+			    <base type="Entity">
+				<field name="name">WeatherAPI</field>
+				<field name="description">Provides weather information (historical, current, forecast).</field>
+				<field name="uniqueId">137</field>
+			    </base>
+
+			    <field name="dataType">Internal API</field>
+			    <field name="includedFields"></field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="15">
+			    <field name="x">842</field>
+			    <field name="y">75</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="16">
+		    <field name="entity">
+			<object type="Data" id="17">
+			    <base type="Entity">
+				<field name="name">ProduceStoreDB</field>
+				<field name="description">Stores available produce for sale.</field>
+				<field name="uniqueId">138</field>
+			    </base>
+
+			    <field name="dataType">Database</field>
+			    <field name="includedFields"></field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="18">
+			    <field name="x">440</field>
+			    <field name="y">145</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="19">
+		    <field name="entity">
+			<object type="Data" id="20">
+			    <base type="Entity">
+				<field name="name">PaymentsAPI</field>
+				<field name="description">Processes customer payments with a third-party provider.</field>
+				<field name="uniqueId">139</field>
+			    </base>
+
+			    <field name="dataType">External API</field>
+			    <field name="includedFields"></field>
+			    <field name="externalToSystem">:true</field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="21">
+			    <field name="x">933</field>
+			    <field name="y">127</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="22">
+		    <field name="entity">
+			<object type="Data" id="23">
+			    <base type="Entity">
+				<field name="name">DeliveryAPI</field>
+				<field name="description">Schedules produce delivery from order with a third-party provider.</field>
+				<field name="uniqueId">140</field>
+			    </base>
+
+			    <field name="dataType">External API</field>
+			    <field name="includedFields"></field>
+			    <field name="externalToSystem">:true</field>
+			    <field name="initialisation"></field>
+			    <field name="writtenWhen"></field>
+			    <field name="externalPath"></field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="24">
+			    <field name="x">848</field>
+			    <field name="y">130</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="25">
+		    <field name="entity">
+			<object type="Notes" id="26">
+			    <base type="Entity">
+				<field name="name">Q1: Do we just add DBs or also APIs?</field>
+				<field name="uniqueId">142</field>
+			    </base>
+
+			    <field name="notes">Q1: Do we just add DBs or also APIs?</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="27">
+			    <field name="x">14</field>
+			    <field name="y">13</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="28">
+		    <field name="entity">
+			<object type="Role" id="29">
+			    <base type="Entity">
+				<field name="name">Crop planting role</field>
+				<field name="description">Responsible for planting seeds.</field>
+				<field name="uniqueId">143</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="30">
+				    <base type="Entity">
+					<field name="name">Plant seeds</field>
+					<field name="description">Start the crop lifecycle by planting selected seeds according to the crop plan.</field>
+					<field name="uniqueId">28</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="31">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Plant seeds</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="32">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Record crop planting in the CropsDB</field>
+					    <field name="description">Update in the database that the planting of this crop was performed in a specific location.</field>
+					    <field name="uniqueId">203</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="33">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Crop plan</field>
+					    <field name="uniqueId">200</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="34">
+			    <field name="x">734</field>
+			    <field name="y">326</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="35">
+		    <field name="entity">
+			<object type="Role" id="36">
+			    <base type="Entity">
+				<field name="name">Transporting role</field>
+				<field name="description">Responsible for transporting harvested crops to the storage.</field>
+				<field name="uniqueId">146</field>
+			    </base>
+
+			    <field name="actions"><list>
+				<object type="Action" id="37">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Move crops to storage</field>
+					    <field name="uniqueId">182</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="38">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Record crop harvested in the CropsDB</field>
+					    <field name="uniqueId">207</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="39">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Record crop ready for sell in the inventory</field>
+					    <field name="uniqueId">208</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="40">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Harvesting complete alert</field>
+					    <field name="description"></field>
+					    <field name="uniqueId">181</field>
+					</base>
+
+				    </base>
+
+				    <field name="source"></field>
+				    <field name="informationCarried"></field>
+				    <field name="knowledgeUpdated"></field>
+				    <field name="processing"></field>
+				    <field name="frequency"></field>
+				    <field name="externalPath"></field>
+				</object>
+
+				<object type="Percept" id="41">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Crop mature alert</field>
+					    <field name="uniqueId">202</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="42">
+			    <field name="x">591</field>
+			    <field name="y">344</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="43">
+		    <field name="entity">
+			<object type="Role" id="44">
+			    <base type="Entity">
+				<field name="name">Sales management role</field>
+				<field name="description">Responsible for managing produce sales, payments and delivery.</field>
+				<field name="uniqueId">147</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="45">
+				    <base type="Entity">
+					<field name="name">Sell produce</field>
+					<field name="description">Make produce available for sale, including publishing availability and responding to customer interest.</field>
+					<field name="uniqueId">11</field>
+				    </base>
+
+				</object>
+
+				<object type="Goal" id="46">
+				    <base type="Entity">
+					<field name="name">Check inventory</field>
+					<field name="description">Maintain up-to-date available stock, supporting decisions in crop recommendation, order processing and sales.</field>
+					<field name="uniqueId">43</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="47">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Process payment</field>
+					    <field name="description"></field>
+					    <field name="uniqueId">183</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object type="Action" id="48">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Update inventory</field>
+					    <field name="description">Update the ProduceStoreDB</field>
+					    <field name="uniqueId">184</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object type="Action" id="49">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Check inventory</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="50">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Create order</field>
+					    <field name="description">Create order in the orders DB.</field>
+					    <field name="uniqueId">190</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="51">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Order</field>
+					    <field name="uniqueId">185</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Percept" id="52">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Order request</field>
+					    <field name="uniqueId">191</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="53">
+			    <field name="x">410</field>
+			    <field name="y">351</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="54">
+		    <field name="entity">
+			<object type="Role" id="55">
+			    <base type="Entity">
+				<field name="name">Crop recommendation role</field>
+				<field name="description">Responsible for analyzing stock and properly recommend crops to plant based on data from the Monitoring role.</field>
+				<field name="uniqueId">148</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="56">
+				    <base type="Entity">
+					<field name="name">Recommend crops</field>
+					<field name="description">Suggest suitable crops to grow based on available stock, customer requests, seasonal crops, weather.</field>
+					<field name="uniqueId">26</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="57">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Decide crops to recommend</field>
+					    <field name="uniqueId">192</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="58">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Get stock information</field>
+					    <field name="uniqueId">193</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="59">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Get orders history</field>
+					    <field name="uniqueId">194</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="60">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Get weather forecast</field>
+					    <field name="uniqueId">195</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="61">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Create crop plan</field>
+					    <field name="uniqueId">210</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="62">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Read crop x season info</field>
+					    <field name="uniqueId">234</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="63">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Stock information</field>
+					    <field name="uniqueId">186</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Percept" id="64">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Weather forecast</field>
+					    <field name="uniqueId">187</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Percept" id="65">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Crops x season data</field>
+					    <field name="description">Common knowledge base of tipical crops per season.</field>
+					    <field name="uniqueId">188</field>
+					</base>
+
+				    </base>
+
+				    <field name="source"></field>
+				    <field name="informationCarried"></field>
+				    <field name="knowledgeUpdated"></field>
+				    <field name="processing"></field>
+				    <field name="frequency"></field>
+				    <field name="externalPath"></field>
+				</object>
+
+				<object type="Percept" id="66">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Orders history</field>
+					    <field name="uniqueId">189</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object ref="33"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="67">
+			    <field name="x">390</field>
+			    <field name="y">383</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="68">
+		    <field name="entity">
+			<object type="Role" id="69">
+			    <base type="Entity">
+				<field name="name">Monitoring role</field>
+				<field name="description">Responsible for gathering sensor/camera/drones data (weather, soil, growth).</field>
+				<field name="uniqueId">149</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="70">
+				    <base type="Entity">
+					<field name="name">Monitor weather</field>
+					<field name="description">Observe weather conditions through sensors to adapt the plan as needed.</field>
+					<field name="uniqueId">42</field>
+				    </base>
+
+				</object>
+
+				<object type="Goal" id="71">
+				    <base type="Entity">
+					<field name="name">Monitor growth</field>
+					<field name="description">Observe and track crop development to ensure progress through sensors/cameras/drones.</field>
+					<field name="uniqueId">41</field>
+				    </base>
+
+				</object>
+
+				<object type="Goal" id="72">
+				    <base type="Entity">
+					<field name="name">Monitor soil</field>
+					<field name="description">Measure soil properties (like moisture and nutrients) through sensors to maintain optimal growth conditions (like decide when it needs to irrigate).</field>
+					<field name="uniqueId">40</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="73">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Collect crop images/videos from drones</field>
+					    <field name="description">Gets the crops images/videos from the drones.</field>
+					    <field name="uniqueId">174</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object type="Action" id="74">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Collect crop images/videos from cameras</field>
+					    <field name="description">Gets the crops images/videos from the cameras spread in the crops.</field>
+					    <field name="uniqueId">175</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object type="Action" id="75">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Collect soil sensor readings</field>
+					    <field name="description">Gets the soil readings from the sensors in the soil.</field>
+					    <field name="uniqueId">176</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object type="Action" id="76">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Get weather data</field>
+					    <field name="description">Gets weather info from some weather API (current weather, weather forecast).</field>
+					    <field name="uniqueId">177</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="77">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Soil moisture/nutrients readings</field>
+					    <field name="description"></field>
+					    <field name="uniqueId">170</field>
+					</base>
+
+				    </base>
+
+				    <field name="source"></field>
+				    <field name="informationCarried"></field>
+				    <field name="knowledgeUpdated"></field>
+				    <field name="processing"></field>
+				    <field name="frequency"></field>
+				    <field name="externalPath"></field>
+				</object>
+
+				<object type="Percept" id="78">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Crop growth images/videos from drones</field>
+					    <field name="uniqueId">171</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Percept" id="79">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Crop growth images/videos from cameras</field>
+					    <field name="uniqueId">172</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Percept" id="80">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Weather data</field>
+					    <field name="description">Weather data original form the weather API.</field>
+					    <field name="uniqueId">173</field>
+					</base>
+
+				    </base>
+
+				    <field name="source"></field>
+				    <field name="informationCarried"></field>
+				    <field name="knowledgeUpdated"></field>
+				    <field name="processing"></field>
+				    <field name="frequency"></field>
+				    <field name="externalPath"></field>
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="81">
+			    <field name="x">89</field>
+			    <field name="y">335</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="82">
+		    <field name="entity">
+			<object type="Role" id="83">
+			    <base type="Entity">
+				<field name="name">Customer role</field>
+				<field name="description">External role: interacts with the system to purchase produce.</field>
+				<field name="uniqueId">150</field>
+			    </base>
+
+			    <field name="actions"><list>
+				<object type="Action" id="84">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Place order</field>
+					    <field name="uniqueId">197</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="85">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Confirm purchase</field>
+					    <field name="uniqueId">198</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="86">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Make payment</field>
+					    <field name="uniqueId">199</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="87">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Produce list</field>
+					    <field name="uniqueId">196</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object ref="52"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="88">
+			    <field name="x">888</field>
+			    <field name="y">360</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="89">
+		    <field name="entity">
+			<object type="Role" id="90">
+			    <base type="Entity">
+				<field name="name">Crop irrigating role</field>
+				<field name="description">Responsible for irrigating crops.</field>
+				<field name="uniqueId">151</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="91">
+				    <base type="Entity">
+					<field name="name">Irrigate seeds</field>
+					<field name="description">Ensure crops receive appropriate water by triggering irrigation at appropriate times based on environmental conditions being monitored.</field>
+					<field name="uniqueId">29</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="92">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Record crop irrigation in the CropsDB</field>
+					    <field name="uniqueId">205</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="93">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Irrigate seeds</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object type="Percept" id="94">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Irrigation alert</field>
+					    <field name="uniqueId">201</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="95">
+			    <field name="x">736</field>
+			    <field name="y">357</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="96">
+		    <field name="entity">
+			<object type="Role" id="97">
+			    <base type="Entity">
+				<field name="name">Crop harvesting role</field>
+				<field name="description">Responsible for harvesting crops.</field>
+				<field name="uniqueId">152</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="98">
+				    <base type="Entity">
+					<field name="name">Harvest crops</field>
+					<field name="description">Based on sensors/camera/drones, harvest when crops are ready.</field>
+					<field name="uniqueId">31</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="99">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Harvest crops</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="100">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Record crop harvesting in the CropsDB</field>
+					    <field name="uniqueId">206</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object ref="41"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="101">
+			    <field name="x">737</field>
+			    <field name="y">390</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="102">
+		    <field name="entity">
+			<object type="Role" id="103">
+			    <base type="Entity">
+				<field name="name">Orders management role</field>
+				<field name="description">Responsible for managing the orders and inventory.</field>
+				<field name="uniqueId">153</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object ref="46"/>
+
+				<object type="Goal" id="104">
+				    <base type="Entity">
+					<field name="name">Manage orders</field>
+					<field name="description">Handle orders (receive and process customer orders), ensuring that stock is available, reserved and delivered.</field>
+					<field name="uniqueId">32</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="105">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Update OrdersDB</field>
+					    <field name="description">Updatye orders DB</field>
+					    <field name="uniqueId">204</field>
+					</base>
+
+				    </base>
+
+				    <field name="parameters"></field>
+				    <field name="durationDescription"></field>
+				    <field name="failureNotificationDescription"></field>
+				    <field name="partialChange"></field>
+				    <field name="sideEffects"></field>
+				</object>
+
+				<object ref="48"/>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object ref="51"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="106">
+			    <field name="x">207</field>
+			    <field name="y">371</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="107">
+		    <field name="entity">
+			<object type="Notes" id="108">
+			    <base type="Entity">
+				<field name="name">not done yet, the roles were added automatically</field>
+				<field name="uniqueId">155</field>
+			    </base>
+
+			    <field name="notes">not done yet, the roles were added automatically</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="109">
+			    <field name="x">1002</field>
+			    <field name="y">347</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="110">
+		    <field name="entity">
+			<object type="Role" id="111">
+			    <base type="Entity">
+				<field name="name">Data analysis role</field>
+				<field name="description">Responsible for analysing the data collected from the different datasources (sensors, cameras, drones).</field>
+				<field name="uniqueId">156</field>
+			    </base>
+
+			    <field name="goals"><list>
+				<object type="Goal" id="112">
+				    <base type="Entity">
+					<field name="name">Analyze growth data</field>
+					<field name="description">Analyze crop development to ensure progress through sensors/cameras/drones, which will eventually trigger harvest is ready.</field>
+					<field name="uniqueId">167</field>
+				    </base>
+
+				</object>
+
+				<object type="Goal" id="113">
+				    <base type="Entity">
+					<field name="name">Analyze soil data</field>
+					<field name="description">Analyze soil measures properties (like moisture and nutrients) monitored to maintain optimal growth conditions (eg decide when it needs to irrigate).</field>
+					<field name="uniqueId">166</field>
+				    </base>
+
+				</object>
+
+				<object type="Goal" id="114">
+				    <base type="Entity">
+					<field name="name">Analyze weather data</field>
+					<field name="description">Analyze weather data to adapt the plan as needed (both current and future crops decisions).</field>
+					<field name="uniqueId">165</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="actions"><list>
+				<object type="Action" id="115">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Analyze crop maturity</field>
+					    <field name="uniqueId">178</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="116">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Trigger alert for harvesting</field>
+					    <field name="uniqueId">179</field>
+					</base>
+
+				    </base>
+
+				</object>
+
+				<object type="Action" id="117">
+				    <base type="Interaction">
+					<base type="Entity">
+					    <field name="name">Trigger alert for irrigation</field>
+					    <field name="uniqueId">180</field>
+					</base>
+
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="percepts"><list>
+				<object ref="79"/>
+
+				<object ref="78"/>
+
+				<object ref="77"/>
+
+				<object ref="80"/>
+
+				<object ref="94"/>
+
+				<object ref="41"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="118">
+			    <field name="x">87</field>
+			    <field name="y">374</field>
+			</object>
+		    </field>
+		</object>
+		</list>
+	    </field>
+	</object>
+
+	<object type="DiagramSettings" id="119">
+	    <field name="diagramId">
+		<object type="DiagramId" id="120">
+		    <field name="stringId">Goal Overview</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="121">
+		    <field name="entity">
+			<object ref="104"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="122">
+			    <field name="x">526</field>
+			    <field name="y">218</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="123">
+		    <field name="entity">
+			<object type="Goal" id="124">
+			    <base type="Entity">
+				<field name="name">Manage crop production</field>
+				<field name="description">Coordinate all tasks involved in producing crops, from selecting which seeds to grow to harvesting them.</field>
+				<field name="uniqueId">3</field>
+			    </base>
+
+			    <field name="subGoals"><list>
+				<object ref="56"/>
+
+				<object type="Goal" id="125">
+				    <base type="Entity">
+					<field name="name">Execute crop plan</field>
+					<field name="description">Perform the planned crop production process, from planting to harvesting.</field>
+					<field name="uniqueId">27</field>
+				    </base>
+
+				    <field name="subGoals"><list>
+					<object ref="30"/>
+
+					<object ref="91"/>
+
+					<object ref="98"/>
+
+					<object type="Goal" id="126">
+					    <base type="Entity">
+						<field name="name">Monitor environment</field>
+						<field name="description">Observe and collect environment conditions affecting crop selection / growth to support timely and informed harvesting decisions.</field>
+						<field name="uniqueId">39</field>
+					    </base>
+
+					    <field name="subGoals"><list>
+						<object ref="72"/>
+
+						<object ref="71"/>
+
+						<object ref="70"/>
+						</list>
+					    </field>
+					</object>
+
+					<object type="Goal" id="127">
+					    <base type="Entity">
+						<field name="name">Analyze environment data</field>
+						<field name="description">Analyze environment data affecting crop selection / growth to support timely and informed harvesting decisions.</field>
+						<field name="uniqueId">168</field>
+					    </base>
+
+					    <field name="subGoals"><list>
+						<object ref="112"/>
+
+						<object ref="113"/>
+
+						<object ref="114"/>
+						</list>
+					    </field>
+					</object>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="128">
+			    <field name="x">203</field>
+			    <field name="y">119</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="129">
+		    <field name="entity">
+			<object ref="114"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="130">
+			    <field name="x">910</field>
+			    <field name="y">409</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="131">
+		    <field name="entity">
+			<object type="Goal" id="132">
+			    <base type="Entity">
+				<field name="name">Administrate sales</field>
+				<field name="description">Handle all activities related to selling produce and fulfilling the orders.</field>
+				<field name="uniqueId">6</field>
+			    </base>
+
+			    <field name="subGoals"><list>
+				<object ref="45"/>
+
+				<object ref="104"/>
+
+				<object ref="46"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="133">
+			    <field name="x">647</field>
+			    <field name="y">113</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="134">
+		    <field name="entity">
+			<object ref="113"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="135">
+			    <field name="x">587</field>
+			    <field name="y">411</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="136">
+		    <field name="entity">
+			<object ref="126"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="137">
+			    <field name="x">197</field>
+			    <field name="y">322</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="138">
+		    <field name="entity">
+			<object ref="112"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="139">
+			    <field name="x">741</field>
+			    <field name="y">410</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="140">
+		    <field name="entity">
+			<object ref="72"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="141">
+			    <field name="x">98</field>
+			    <field name="y">412</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="142">
+		    <field name="entity">
+			<object ref="127"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="143">
+			    <field name="x">725</field>
+			    <field name="y">335</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="144">
+		    <field name="entity">
+			<object ref="71"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="145">
+			    <field name="x">212</field>
+			    <field name="y">410</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="146">
+		    <field name="entity">
+			<object type="Notes" id="147">
+			    <base type="Entity">
+				<field name="name">Is checking inventory really a goal? Seems more like a step scenario needed for both managing orders and sales.</field>
+				<field name="uniqueId">169</field>
+			    </base>
+
+			    <field name="notes">Is checking inventory really a goal? Seems more like a step scenario.</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="148">
+			    <field name="x">938</field>
+			    <field name="y">195</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="149">
+		    <field name="entity">
+			<object ref="70"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="150">
+			    <field name="x">349</field>
+			    <field name="y">411</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="151">
+		    <field name="entity">
+			<object ref="45"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="152">
+			    <field name="x">666</field>
+			    <field name="y">218</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="153">
+		    <field name="entity">
+			<object ref="46"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="154">
+			    <field name="x">793</field>
+			    <field name="y">217</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="155">
+		    <field name="entity">
+			<object type="Notes" id="156">
+			    <base type="Entity">
+				<field name="name">System goal: Manage the full lifecycle of a farm.</field>
+				<field name="uniqueId">14</field>
+			    </base>
+
+			    <field name="notes">System goal: Manage the full lifecycle of a farm.</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="157">
+			    <field name="x">16</field>
+			    <field name="y">11</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="158">
+		    <field name="entity">
+			<object type="Goal" id="159">
+			    <base type="Entity">
+				<field name="name">Manage farm</field>
+				<field name="uniqueId">209</field>
+			    </base>
+
+			    <field name="subGoals"><list>
+				<object ref="124"/>
+
+				<object ref="132"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="160">
+			    <field name="x">463</field>
+			    <field name="y">46</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="161">
+		    <field name="entity">
+			<object ref="56"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="162">
+			    <field name="x">90</field>
+			    <field name="y">219</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="163">
+		    <field name="entity">
+			<object ref="125"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="164">
+			    <field name="x">318</field>
+			    <field name="y">217</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="165">
+		    <field name="entity">
+			<object ref="30"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="166">
+			    <field name="x">64</field>
+			    <field name="y">324</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="167">
+		    <field name="entity">
+			<object ref="91"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="168">
+			    <field name="x">377</field>
+			    <field name="y">324</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="169">
+		    <field name="entity">
+			<object ref="98"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="170">
+			    <field name="x">536</field>
+			    <field name="y">326</field>
+			</object>
+		    </field>
+		</object>
+		</list>
+	    </field>
+	</object>
+
+	<object type="DiagramSettings" id="171">
+	    <field name="diagramId">
+		<object type="DiagramId" id="172">
+		    <field name="stringId">Agent-Role Coupling</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="173">
+		    <field name="entity">
+			<object ref="36"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="174">
+			    <field name="x">296</field>
+			    <field name="y">362</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="175">
+		    <field name="entity">
+			<object ref="44"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="176">
+			    <field name="x">455</field>
+			    <field name="y">327</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="177">
+		    <field name="entity">
+			<object ref="55"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="178">
+			    <field name="x">633</field>
+			    <field name="y">355</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="179">
+		    <field name="entity">
+			<object ref="69"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="180">
+			    <field name="x">296</field>
+			    <field name="y">322</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="181">
+		    <field name="entity">
+			<object ref="83"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="182">
+			    <field name="x">29</field>
+			    <field name="y">346</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="183">
+		    <field name="entity">
+			<object ref="90"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="184">
+			    <field name="x">143</field>
+			    <field name="y">355</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="185">
+		    <field name="entity">
+			<object ref="97"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="186">
+			    <field name="x">138</field>
+			    <field name="y">387</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="187">
+		    <field name="entity">
+			<object ref="103"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="188">
+			    <field name="x">454</field>
+			    <field name="y">367</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="189">
+		    <field name="entity">
+			<object type="Notes" id="190">
+			    <base type="Entity">
+				<field name="name">not done yet, the roles were added automatically</field>
+				<field name="uniqueId">154</field>
+			    </base>
+
+			    <field name="notes">not done yet, the roles were added automatically</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="191">
+			    <field name="x">810</field>
+			    <field name="y">343</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="192">
+		    <field name="entity">
+			<object ref="111"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="193">
+			    <field name="x">294</field>
+			    <field name="y">285</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="194">
+		    <field name="entity">
+			<object ref="29"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="195">
+			    <field name="x">145</field>
+			    <field name="y">319</field>
+			</object>
+		    </field>
+		</object>
+		</list>
+	    </field>
+	</object>
+
+	<object type="DiagramSettings" id="196">
+	    <field name="diagramId">
+		<object type="DiagramId" id="197">
+		    <field name="stringId">System Roles</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="198">
+		    <field name="entity">
+			<object type="Notes" id="199">
+			    <base type="Entity">
+				<field name="name">Manage farm</field>
+				<field name="uniqueId">1</field>
+			    </base>
+
+			    <field name="notes">Manage farm</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="200">
+			    <field name="x">334</field>
+			    <field name="y">72</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="201">
+		    <field name="entity">
+			<object type="Role" id="202">
+			    <base type="Entity">
+				<field name="uniqueId">3</field>
+			    </base>
+
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="203">
+			    <field name="x">1296</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="204">
+		    <field name="entity">
+			<object type="Role" id="205">
+			    <base type="Entity">
+				<field name="uniqueId">6</field>
+			    </base>
+
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="206">
+			    <field name="x">1242</field>
+			    <field name="y">77</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="207">
+		    <field name="entity">
+			<object ref="45"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="208">
+			    <field name="x">21</field>
+			    <field name="y">400</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="209">
+		    <field name="entity">
+			<object ref="29"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="210">
+			    <field name="x">177</field>
+			    <field name="y">98</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="211">
+		    <field name="entity">
+			<object type="Notes" id="212">
+			    <base type="Entity">
+				<field name="name">Transporting Role</field>
+				<field name="uniqueId">144</field>
+			    </base>
+
+			    <field name="notes">Transporting Role</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="213">
+			    <field name="x">107</field>
+			    <field name="y">119</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="214">
+		    <field name="entity">
+			<object type="Notes" id="215">
+			    <base type="Entity">
+				<field name="name">Transportating role</field>
+				<field name="uniqueId">145</field>
+			    </base>
+
+			    <field name="notes">Transportating role</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="216">
+			    <field name="x">177</field>
+			    <field name="y">178</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="217">
+		    <field name="entity">
+			<object ref="36"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="218">
+			    <field name="x">1192</field>
+			    <field name="y">346</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="219">
+		    <field name="entity">
+			<object ref="44"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="220">
+			    <field name="x">11</field>
+			    <field name="y">338</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="221">
+		    <field name="entity">
+			<object ref="55"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="222">
+			    <field name="x">618</field>
+			    <field name="y">126</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="223">
+		    <field name="entity">
+			<object ref="69"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="224">
+			    <field name="x">304</field>
+			    <field name="y">500</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="225">
+		    <field name="entity">
+			<object ref="83"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="226">
+			    <field name="x">372</field>
+			    <field name="y">257</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="227">
+		    <field name="entity">
+			<object ref="90"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="228">
+			    <field name="x">765</field>
+			    <field name="y">346</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="229">
+		    <field name="entity">
+			<object ref="97"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="230">
+			    <field name="x">979</field>
+			    <field name="y">347</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="231">
+		    <field name="entity">
+			<object ref="103"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="232">
+			    <field name="x">335</field>
+			    <field name="y">371</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="233">
+		    <field name="entity">
+			<object ref="56"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="234">
+			    <field name="x">416</field>
+			    <field name="y">126</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="235">
+		    <field name="entity">
+			<object ref="125"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="236">
+			    <field name="x">1428</field>
+			    <field name="y">26</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="237">
+		    <field name="entity">
+			<object ref="111"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="238">
+			    <field name="x">880</field>
+			    <field name="y">505</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="239">
+		    <field name="entity">
+			<object ref="30"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="240">
+			    <field name="x">63</field>
+			    <field name="y">52</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="241">
+		    <field name="entity">
+			<object ref="91"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="242">
+			    <field name="x">639</field>
+			    <field name="y">346</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="243">
+		    <field name="entity">
+			<object ref="98"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="244">
+			    <field name="x">939</field>
+			    <field name="y">302</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="245">
+		    <field name="entity">
+			<object ref="104"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="246">
+			    <field name="x">542</field>
+			    <field name="y">371</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="247">
+		    <field name="entity">
+			<object type="Notes" id="248">
+			    <base type="Entity">
+				<field name="name">i believe this subset of roles and goals don't connect to anything. We can delete them if we do the diagram and  agreethey don't connect after all.</field>
+				<field name="uniqueId">164</field>
+			    </base>
+
+			    <field name="notes">we must decide if analysis the data collected is important enough to create a subgoal for it</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="249">
+			    <field name="x">1402</field>
+			    <field name="y">6</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="250">
+		    <field name="entity">
+			<object ref="114"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="251">
+			    <field name="x">1096</field>
+			    <field name="y">473</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="252">
+		    <field name="entity">
+			<object ref="113"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="253">
+			    <field name="x">1103</field>
+			    <field name="y">510</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="254">
+		    <field name="entity">
+			<object ref="126"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="255">
+			    <field name="x">1269</field>
+			    <field name="y">28</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="256">
+		    <field name="entity">
+			<object ref="112"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="257">
+			    <field name="x">1088</field>
+			    <field name="y">550</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="258">
+		    <field name="entity">
+			<object ref="72"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="259">
+			    <field name="x">217</field>
+			    <field name="y">594</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="260">
+		    <field name="entity">
+			<object ref="127"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="261">
+			    <field name="x">1354</field>
+			    <field name="y">56</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="262">
+		    <field name="entity">
+			<object ref="71"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="263">
+			    <field name="x">360</field>
+			    <field name="y">593</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="264">
+		    <field name="entity">
+			<object ref="70"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="265">
+			    <field name="x">277</field>
+			    <field name="y">618</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="266">
+		    <field name="entity">
+			<object ref="77"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="267">
+			    <field name="x">454</field>
+			    <field name="y">549</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="268">
+		    <field name="entity">
+			<object ref="46"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="269">
+			    <field name="x">135</field>
+			    <field name="y">400</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="270">
+		    <field name="entity">
+			<object ref="78"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="271">
+			    <field name="x">412</field>
+			    <field name="y">491</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="272">
+		    <field name="entity">
+			<object ref="79"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="273">
+			    <field name="x">404</field>
+			    <field name="y">432</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="274">
+		    <field name="entity">
+			<object ref="80"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="275">
+			    <field name="x">531</field>
+			    <field name="y">607</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="276">
+		    <field name="entity">
+			<object ref="73"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="277">
+			    <field name="x">14</field>
+			    <field name="y">489</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="278">
+		    <field name="entity">
+			<object ref="74"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="279">
+			    <field name="x">13</field>
+			    <field name="y">454</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="280">
+		    <field name="entity">
+			<object ref="75"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="281">
+			    <field name="x">16</field>
+			    <field name="y">524</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="282">
+		    <field name="entity">
+			<object ref="76"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="283">
+			    <field name="x">18</field>
+			    <field name="y">560</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="284">
+		    <field name="entity">
+			<object ref="115"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="285">
+			    <field name="x">872</field>
+			    <field name="y">630</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="286">
+		    <field name="entity">
+			<object ref="116"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="287">
+			    <field name="x">800</field>
+			    <field name="y">600</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="288">
+		    <field name="entity">
+			<object ref="117"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="289">
+			    <field name="x">1005</field>
+			    <field name="y">600</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="290">
+		    <field name="entity">
+			<object ref="40"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="291">
+			    <field name="x">1165</field>
+			    <field name="y">395</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="292">
+		    <field name="entity">
+			<object ref="37"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="293">
+			    <field name="x">1381</field>
+			    <field name="y">295</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="294">
+		    <field name="entity">
+			<object ref="47"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="295">
+			    <field name="x">9</field>
+			    <field name="y">241</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="296">
+		    <field name="entity">
+			<object ref="48"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="297">
+			    <field name="x">193</field>
+			    <field name="y">338</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="298">
+		    <field name="entity">
+			<object ref="51"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="299">
+			    <field name="x">233</field>
+			    <field name="y">261</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="300">
+		    <field name="entity">
+			<object ref="63"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="301">
+			    <field name="x">320</field>
+			    <field name="y">29</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="302">
+		    <field name="entity">
+			<object ref="64"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="303">
+			    <field name="x">614</field>
+			    <field name="y">41</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="304">
+		    <field name="entity">
+			<object ref="65"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="305">
+			    <field name="x">479</field>
+			    <field name="y">4</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="306">
+		    <field name="entity">
+			<object ref="66"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="307">
+			    <field name="x">697</field>
+			    <field name="y">2</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="308">
+		    <field name="entity">
+			<object ref="50"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="309">
+			    <field name="x">11</field>
+			    <field name="y">207</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="310">
+		    <field name="entity">
+			<object ref="52"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="311">
+			    <field name="x">184</field>
+			    <field name="y">192</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="312">
+		    <field name="entity">
+			<object ref="57"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="313">
+			    <field name="x">876</field>
+			    <field name="y">159</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="314">
+		    <field name="entity">
+			<object ref="58"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="315">
+			    <field name="x">875</field>
+			    <field name="y">124</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="316">
+		    <field name="entity">
+			<object ref="59"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="317">
+			    <field name="x">873</field>
+			    <field name="y">47</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="318">
+		    <field name="entity">
+			<object ref="60"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="319">
+			    <field name="x">872</field>
+			    <field name="y">10</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="320">
+		    <field name="entity">
+			<object ref="87"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="321">
+			    <field name="x">328</field>
+			    <field name="y">173</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="322">
+		    <field name="entity">
+			<object ref="84"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="323">
+			    <field name="x">511</field>
+			    <field name="y">227</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="324">
+		    <field name="entity">
+			<object ref="85"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="325">
+			    <field name="x">509</field>
+			    <field name="y">193</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="326">
+		    <field name="entity">
+			<object ref="86"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="327">
+			    <field name="x">511</field>
+			    <field name="y">261</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="328">
+		    <field name="entity">
+			<object ref="33"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="329">
+			    <field name="x">358</field>
+			    <field name="y">84</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="330">
+		    <field name="entity">
+			<object ref="94"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="331">
+			    <field name="x">744</field>
+			    <field name="y">395</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="332">
+		    <field name="entity">
+			<object ref="41"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="333">
+			    <field name="x">954</field>
+			    <field name="y">396</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="334">
+		    <field name="entity">
+			<object ref="32"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="335">
+			    <field name="x">14</field>
+			    <field name="y">142</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="336">
+		    <field name="entity">
+			<object ref="105"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="337">
+			    <field name="x">479</field>
+			    <field name="y">326</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="338">
+		    <field name="entity">
+			<object ref="92"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="339">
+			    <field name="x">689</field>
+			    <field name="y">241</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="340">
+		    <field name="entity">
+			<object ref="100"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="341">
+			    <field name="x">1088</field>
+			    <field name="y">265</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="342">
+		    <field name="entity">
+			<object ref="38"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="343">
+			    <field name="x">1379</field>
+			    <field name="y">328</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="344">
+		    <field name="entity">
+			<object ref="39"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="345">
+			    <field name="x">1378</field>
+			    <field name="y">360</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="346">
+		    <field name="entity">
+			<object ref="61"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="347">
+			    <field name="x">877</field>
+			    <field name="y">195</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="348">
+		    <field name="entity">
+			<object ref="62"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="349">
+			    <field name="x">874</field>
+			    <field name="y">86</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="350">
+		    <field name="entity">
+			<object type="Notes" id="351">
+			    <base type="Entity">
+				<field name="name">Once it's agreed with all, we can complete missing descriptions.</field>
+				<field name="uniqueId">235</field>
+			    </base>
+
+			    <field name="notes">Once it's agreed with all, we can complete missing descriptions.</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="352">
+			    <field name="x">1111</field>
+			    <field name="y">12</field>
+			</object>
+		    </field>
+		</object>
+		</list>
+	    </field>
+	</object>
+
+	<object type="DiagramSettings" id="353">
+	    <field name="diagramId">
+		<object type="DiagramId" id="354">
+		    <field name="stringId">Scenarios</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="355">
+		    <field name="entity">
+			<object type="Scenario" id="356">
+			    <base type="Entity">
+				<field name="name">Customer views available produce scenario</field>
+				<field name="description">Customer queries the available produce list.</field>
+				<field name="uniqueId">67</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="83"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="357">
+			    <field name="x">335</field>
+			    <field name="y">12</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="358">
+		    <field name="entity">
+			<object type="Scenario" id="359">
+			    <base type="Entity">
+				<field name="name">Check stock scenario</field>
+				<field name="description">Check the current produce stock.
+</field>
+				<field name="uniqueId">69</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object ref="46"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="360">
+			    <field name="x">337</field>
+			    <field name="y">93</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="361">
+		    <field name="entity">
+			<object type="Scenario" id="362">
+			    <base type="Entity">
+				<field name="name">Handle payment scenario</field>
+				<field name="description">Sends payment details to an external payment service, and receives the confirmation.</field>
+				<field name="uniqueId">71</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="44"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="363">
+			    <field name="x">338</field>
+			    <field name="y">134</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="364">
+		    <field name="entity">
+			<object type="Scenario" id="365">
+			    <base type="Entity">
+				<field name="name">Create order scenario</field>
+				<field name="description">Creates a new order entry for the customer's purchase.</field>
+				<field name="uniqueId">73</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="44"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="366">
+			    <field name="x">338</field>
+			    <field name="y">174</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="367">
+		    <field name="entity">
+			<object type="Scenario" id="368">
+			    <base type="Entity">
+				<field name="name">Schedule delivery scenario</field>
+				<field name="description">Schedules the delivery through an external delivery service.</field>
+				<field name="uniqueId">75</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="44"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="369">
+			    <field name="x">337</field>
+			    <field name="y">410</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="370">
+		    <field name="entity">
+			<object type="Scenario" id="371">
+			    <base type="Entity">
+				<field name="name">Customer purchases produce scenario</field>
+				<field name="description">Customer selects and purchases produce items.</field>
+				<field name="uniqueId">77</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="83"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="372">
+			    <field name="x">335</field>
+			    <field name="y">52</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="373">
+		    <field name="entity">
+			<object type="Scenario" id="374">
+			    <base type="Entity">
+				<field name="name">Sell produce scenario</field>
+				<field name="description">Manages the selling of produce to customers, from displaying available produce stock to handling payments and deliveries.</field>
+				<field name="uniqueId">78</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="steps"><list>
+				<object type="Step" id="375">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=79&gt;</field>
+					<field name="description">Customer queries the available produce list.</field>
+					<field name="uniqueId">79</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="356"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="83"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="376">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=80&gt;</field>
+					<field name="description">Customer selects and purchases produce items.</field>
+					<field name="uniqueId">80</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="371"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="83"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="377">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=81&gt;</field>
+					<field name="description">Check the current produce stock before confirming an order.</field>
+					<field name="uniqueId">81</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="359"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="44"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="378">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=83&gt;</field>
+					<field name="description">Creates a new order entry for the customer's purchase.</field>
+					<field name="uniqueId">83</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="365"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="44"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="379">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=82&gt;</field>
+					<field name="description">Sends payment details to an external payment service, and receives the confirmation.</field>
+					<field name="uniqueId">82</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="362"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="20"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="20"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="44"/>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object type="Goal" id="380">
+				    <base type="Entity">
+					<field name="name">Sell produce</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="roles"><list>
+				<object ref="44"/>
+
+				<object ref="83"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="381">
+			    <field name="x">29</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="382">
+		    <field name="entity">
+			<object type="Scenario" id="383">
+			    <base type="Entity">
+				<field name="name">Analyze orders history scenario</field>
+				<field name="uniqueId">212</field>
+			    </base>
+
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="384">
+			    <field name="x">890</field>
+			    <field name="y">49</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="385">
+		    <field name="entity">
+			<object type="Scenario" id="386">
+			    <base type="Entity">
+				<field name="name">Manage orders scenario</field>
+				<field name="description">Internal management of customer orders and inventory.</field>
+				<field name="uniqueId">85</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="steps"><list>
+				<object type="Step" id="387">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=88&gt;</field>
+					<field name="description">Receives confirmed purchase order from Sell produce process.</field>
+					<field name="uniqueId">88</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="388">
+					    <base type="Entity">
+						<field name="name">Receive order from sale scenario</field>
+						<field name="description">Receives confirmed purchase order from Sell produce process.</field>
+						<field name="uniqueId">87</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="roles"><list>
+						<object ref="103"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="103"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="389">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=91&gt;</field>
+					<field name="description">Reserves all the produce items from the confirmed order in the inventory.</field>
+					<field name="uniqueId">91</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="390">
+					    <base type="Entity">
+						<field name="name">Reserve produce in inventory scenario</field>
+						<field name="description">Reserves all the produce items from the confirmed order in the inventory.</field>
+						<field name="uniqueId">89</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="roles"><list>
+						<object ref="103"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="103"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="391">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=94&gt;</field>
+					<field name="description">Updates the order's current status.</field>
+					<field name="uniqueId">94</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="392">
+					    <base type="Entity">
+						<field name="name">Update order records scenario</field>
+						<field name="description">Updates the order's current status.</field>
+						<field name="uniqueId">92</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="roles"><list>
+						<object ref="103"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="103"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="393">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=100&gt;</field>
+					<field name="description">Decreases the available produce istock after reservation.</field>
+					<field name="uniqueId">100</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="394">
+					    <base type="Entity">
+						<field name="name">Update inventory scenario</field>
+						<field name="description">Decreases the available produce in stock after reservation.</field>
+						<field name="uniqueId">99</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="roles"><list>
+						<object ref="103"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="103"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="395">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=163&gt;</field>
+					<field name="description">Schedules the delivery through an external delivery service.</field>
+					<field name="uniqueId">163</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="368"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="23"/>
+
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="103"/>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object type="Goal" id="396">
+				    <base type="Entity">
+					<field name="name">Manage orders</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="roles"><list>
+				<object ref="103"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="397">
+			    <field name="x">19</field>
+			    <field name="y">353</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="398">
+		    <field name="entity">
+			<object ref="388"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="399">
+			    <field name="x">340</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="400">
+		    <field name="entity">
+			<object type="Scenario" id="401">
+			    <base type="Entity">
+				<field name="name">Analyze environment data scenario</field>
+				<field name="description">Analyze environment data (weather, soil, crop growth).</field>
+				<field name="uniqueId">215</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="steps"><list>
+				<object type="Step" id="402">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=217&gt;</field>
+					<field name="description">Weather sensors report environmental data with certain frequency to support irrigation and harvesting decisions.</field>
+					<field name="uniqueId">217</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="403">
+					    <base type="Entity">
+						<field name="name">Analyze weather conditions scenario</field>
+						<field name="description">Weather sensors report environmental data with certain frequency to support irrigation and harvesting decisions.</field>
+						<field name="uniqueId">55</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="114"/>
+						</list>
+					    </field>
+					    <field name="roles"><list>
+						<object ref="111"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="14"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="111"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="404">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=219&gt;</field>
+					<field name="description">Sensors/cameras/drones detect crop maturity status.</field>
+					<field name="uniqueId">219</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="405">
+					    <base type="Entity">
+						<field name="name">Analyze maturity of crop scenario</field>
+						<field name="description">Sensors/cameras/drones detect crop maturity status.</field>
+						<field name="uniqueId">119</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="112"/>
+						</list>
+					    </field>
+					    <field name="roles"><list>
+						<object ref="111"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="111"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="406">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=222&gt;</field>
+					<field name="description">Analyze soil measures properties (like moisture and nutrients) monitored to maintain optimal growth conditions (eg decide when it needs to irrigate).</field>
+					<field name="uniqueId">222</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="407">
+					    <base type="Entity">
+						<field name="name">Analyze soil data scenario</field>
+						<field name="description">Analyze soil measures properties (like moisture and nutrients) monitored to maintain optimal growth conditions (eg decide when it needs to irrigate).</field>
+						<field name="uniqueId">220</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="113"/>
+						</list>
+					    </field>
+					    <field name="roles"><list>
+						<object ref="111"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="8"/>
+					</list>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="5"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="111"/>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object type="Goal" id="408">
+				    <base type="Entity">
+					<field name="name">Analyze environment data</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="409">
+			    <field name="x">613</field>
+			    <field name="y">179</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="410">
+		    <field name="entity">
+			<object ref="390"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="411">
+			    <field name="x">338</field>
+			    <field name="y">285</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="412">
+		    <field name="entity">
+			<object ref="392"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="413">
+			    <field name="x">339</field>
+			    <field name="y">327</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="414">
+		    <field name="entity">
+			<object ref="407"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="415">
+			    <field name="x">881</field>
+			    <field name="y">148</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="416">
+		    <field name="entity">
+			<object type="Scenario" id="417">
+			    <base type="Entity">
+				<field name="name">Monitor environment scenario</field>
+				<field name="description">Observe and collect environment conditions affecting crop selection / growth to support timely and informed harvesting decisions.</field>
+				<field name="uniqueId">223</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="steps"><list>
+				<object type="Step" id="418">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=228&gt;</field>
+					<field name="description">Measure soil properties (like moisture and nutrients) through sensors to maintain optimal growth conditions (like decide when it needs to irrigate).</field>
+					<field name="uniqueId">228</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="419">
+					    <base type="Entity">
+						<field name="name">Monitor soil scenario</field>
+						<field name="description">Measure soil properties (like moisture and nutrients) through sensors to maintain optimal growth conditions (like decide when it needs to irrigate).</field>
+						<field name="uniqueId">227</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="72"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="69"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="420">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=230&gt;</field>
+					<field name="description">Observe weather conditions through sensors to adapt the plan as needed.</field>
+					<field name="uniqueId">230</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="421">
+					    <base type="Entity">
+						<field name="name">Monitor weather scenario</field>
+						<field name="description">Observe weather conditions through sensors to adapt the plan as needed.</field>
+						<field name="uniqueId">229</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="70"/>
+						</list>
+					    </field>
+					    <field name="roles"><list>
+						<object ref="69"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="14"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="69"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="422">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=233&gt;</field>
+					<field name="description">Observe and track crop development to ensure progress through sensors/cameras/drones.</field>
+					<field name="uniqueId">233</field>
+				    </base>
+
+				    <field name="step">
+					<object type="Scenario" id="423">
+					    <base type="Entity">
+						<field name="name">Monitor crop growth scenario</field>
+						<field name="description">Observe and track crop development to ensure progress through sensors/cameras/drones.</field>
+						<field name="uniqueId">231</field>
+					    </base>
+
+					    <field name="context"></field>
+					    <field name="variation"></field>
+					    <field name="linkedGoals"><list>
+						<object ref="71"/>
+						</list>
+					    </field>
+					    <field name="roles"><list>
+						<object ref="69"/>
+						</list>
+					    </field>
+					</object>
+				    </field>
+				    <field name="dataWritten"><list>
+					<object ref="5"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="69"/>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object type="Goal" id="424">
+				    <base type="Entity">
+					<field name="name">Monitor environment</field>
+				    </base>
+
+				</object>
+				</list>
+			    </field>
+			    <field name="roles"><list>
+				<object ref="69"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="425">
+			    <field name="x">615</field>
+			    <field name="y">312</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="426">
+		    <field name="entity">
+			<object ref="394"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="427">
+			    <field name="x">340</field>
+			    <field name="y">369</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="428">
+		    <field name="entity">
+			<object ref="419"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="429">
+			    <field name="x">879</field>
+			    <field name="y">242</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="430">
+		    <field name="entity">
+			<object ref="421"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="431">
+			    <field name="x">880</field>
+			    <field name="y">289</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="432">
+		    <field name="entity">
+			<object ref="423"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="433">
+			    <field name="x">882</field>
+			    <field name="y">334</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="434">
+		    <field name="entity">
+			<object type="Scenario" id="435">
+			    <base type="Entity">
+				<field name="name">Decide seeds to plant scenario</field>
+				<field name="description">Decides best seeds to plant.</field>
+				<field name="uniqueId">107</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="variation"></field>
+			    <field name="roles"><list>
+				<object ref="55"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="436">
+			    <field name="x">890</field>
+			    <field name="y">11</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="437">
+		    <field name="entity">
+			<object type="Scenario" id="438">
+			    <base type="Entity">
+				<field name="name">Recommend crops scenario</field>
+				<field name="description">The system recommends which crops to plant based on environmental conditions (weather, season), current stock levels and customers needs.</field>
+				<field name="uniqueId">47</field>
+			    </base>
+
+			    <field name="context"></field>
+			    <field name="steps"><list>
+				<object type="Step" id="439">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=103&gt;</field>
+					<field name="description">Check the current produce stock to avoid overproduction of ceirtain crops.</field>
+					<field name="uniqueId">103</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="359"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="17"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="55"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="440">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=105&gt;</field>
+					<field name="description">Weather sensors report environmental data with certain frequency to support harvesting decisions.</field>
+					<field name="uniqueId">105</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="403"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="14"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="69"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="441">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=214&gt;</field>
+					<field name="description">Analyze orders history to identify demand.</field>
+					<field name="uniqueId">214</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="383"/>
+				    </field>
+				    <field name="dataRead"><list>
+					<object ref="11"/>
+					</list>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="111"/>
+					</list>
+				    </field>
+				</object>
+
+				<object type="Step" id="442">
+				    <base type="Entity">
+					<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=108&gt;</field>
+					<field name="description">Decides best seeds to plant.</field>
+					<field name="uniqueId">108</field>
+				    </base>
+
+				    <field name="step">
+					<object ref="435"/>
+				    </field>
+				    <field name="roles"><list>
+					<object ref="55"/>
+					</list>
+				    </field>
+				</object>
+				</list>
+			    </field>
+			    <field name="variation"></field>
+			    <field name="linkedGoals"><list>
+				<object ref="56"/>
+				</list>
+			    </field>
+			    <field name="roles"><list>
+				<object ref="55"/>
+				</list>
+			    </field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="443">
+			    <field name="x">618</field>
+			    <field name="y">92</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="444">
+		    <field name="entity">
+			<object ref="403"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="445">
+			    <field name="x">892</field>
+			    <field name="y">86</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="446">
+		    <field name="entity">
+			<object ref="405"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="447">
+			    <field name="x">879</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		</object>
+		</list>
+	    </field>
+	</object>
+
+	<object type="DiagramSettings" id="448">
+	    <field name="diagramId">
+		<object type="DiagramId" id="449">
+		    <field name="stringId">System Overview</field>
+		</object>
+	    </field>
+	    <field name="entitySettings"><list>
+		<object type="DiagramEntitySetting" id="450">
+		    <field name="entity">
+			<object ref="57"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="451">
+			    <field name="x">437</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="452">
+		    <field name="entity">
+			<object ref="49"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="453">
+			    <field name="x">277</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="454">
+		    <field name="entity">
+			<object ref="58"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="455">
+			    <field name="x">517</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="456">
+		    <field name="entity">
+			<object ref="59"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="457">
+			    <field name="x">37</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="458">
+		    <field name="entity">
+			<object ref="60"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="459">
+			    <field name="x">117</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="460">
+		    <field name="entity">
+			<object ref="87"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="461">
+			    <field name="x">437</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="462">
+		    <field name="entity">
+			<object ref="84"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="463">
+			    <field name="x">197</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="464">
+		    <field name="entity">
+			<object ref="85"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="465">
+			    <field name="x">277</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="466">
+		    <field name="entity">
+			<object ref="86"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="467">
+			    <field name="x">357</field>
+			    <field name="y">135</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="468">
+		    <field name="entity">
+			<object ref="33"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="469">
+			    <field name="x">517</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="470">
+		    <field name="entity">
+			<object ref="94"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="471">
+			    <field name="x">37</field>
+			    <field name="y">355</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="472">
+		    <field name="entity">
+			<object ref="41"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="473">
+			    <field name="x">117</field>
+			    <field name="y">355</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="474">
+		    <field name="entity">
+			<object ref="32"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="475">
+			    <field name="x">37</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="476">
+		    <field name="entity">
+			<object ref="105"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="477">
+			    <field name="x">117</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="478">
+		    <field name="entity">
+			<object ref="92"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="479">
+			    <field name="x">197</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="480">
+		    <field name="entity">
+			<object ref="100"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="481">
+			    <field name="x">277</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="482">
+		    <field name="entity">
+			<object ref="38"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="483">
+			    <field name="x">357</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="484">
+		    <field name="entity">
+			<object ref="39"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="485">
+			    <field name="x">437</field>
+			    <field name="y">190</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="486">
+		    <field name="entity">
+			<object ref="61"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="487">
+			    <field name="x">37</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="488">
+		    <field name="entity">
+			<object type="Notes" id="489">
+			    <base type="Entity">
+				<field name="name">not done yet, the percepts and actions were added automatically</field>
+				<field name="uniqueId">211</field>
+			    </base>
+
+			    <field name="notes">not done yet, the roles were added automatically</field>
+			</object>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="490">
+			    <field name="x">798</field>
+			    <field name="y">277</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="491">
+		    <field name="entity">
+			<object ref="77"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="492">
+			    <field name="x">117</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="493">
+		    <field name="entity">
+			<object ref="62"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="494">
+			    <field name="x">357</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="495">
+		    <field name="entity">
+			<object ref="78"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="496">
+			    <field name="x">197</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="497">
+		    <field name="entity">
+			<object ref="79"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="498">
+			    <field name="x">340</field>
+			    <field name="y">246</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="499">
+		    <field name="entity">
+			<object ref="80"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="500">
+			    <field name="x">357</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="501">
+		    <field name="entity">
+			<object ref="73"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="502">
+			    <field name="x">37</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="503">
+		    <field name="entity">
+			<object ref="74"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="504">
+			    <field name="x">117</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="505">
+		    <field name="entity">
+			<object ref="75"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="506">
+			    <field name="x">197</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="507">
+		    <field name="entity">
+			<object ref="76"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="508">
+			    <field name="x">277</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="509">
+		    <field name="entity">
+			<object ref="115"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="510">
+			    <field name="x">357</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="511">
+		    <field name="entity">
+			<object ref="116"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="512">
+			    <field name="x">437</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="513">
+		    <field name="entity">
+			<object ref="117"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="514">
+			    <field name="x">517</field>
+			    <field name="y">25</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="515">
+		    <field name="entity">
+			<object ref="40"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="516">
+			    <field name="x">437</field>
+			    <field name="y">245</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="517">
+		    <field name="entity">
+			<object ref="37"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="518">
+			    <field name="x">37</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="519">
+		    <field name="entity">
+			<object ref="47"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="520">
+			    <field name="x">117</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="521">
+		    <field name="entity">
+			<object ref="48"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="522">
+			    <field name="x">197</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="523">
+		    <field name="entity">
+			<object ref="51"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="524">
+			    <field name="x">685</field>
+			    <field name="y">258</field>
+			</object>
+		    </field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="525">
+		    <field name="entity">
+			<object ref="63"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="526">
+			    <field name="x">37</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="527">
+		    <field name="entity">
+			<object ref="64"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="528">
+			    <field name="x">117</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="529">
+		    <field name="entity">
+			<object ref="65"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="530">
+			    <field name="x">197</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="531">
+		    <field name="entity">
+			<object ref="66"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="532">
+			    <field name="x">277</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="533">
+		    <field name="entity">
+			<object ref="50"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="534">
+			    <field name="x">357</field>
+			    <field name="y">80</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+
+		<object type="DiagramEntitySetting" id="535">
+		    <field name="entity">
+			<object ref="52"/>
+		    </field>
+		    <field name="location">
+			<object type="Coordinate" id="536">
+			    <field name="x">357</field>
+			    <field name="y">300</field>
+			</object>
+		    </field>
+		    <field name="userApproved">:false</field>
+		</object>
+		</list>
+	    </field>
+	</object>
+	</list>
+    </field>
+    <field name="model">
+	<object type="PrometheusModelData" id="537">
+	    <field name="projectData">
+		<object ref="1"/>
+	    </field>
+	    <field name="actions"><list>
+		<object ref="73"/>
+
+		<object ref="74"/>
+
+		<object ref="75"/>
+
+		<object ref="76"/>
+
+		<object ref="115"/>
+
+		<object ref="116"/>
+
+		<object ref="117"/>
+
+		<object ref="37"/>
+
+		<object ref="47"/>
+
+		<object ref="48"/>
+
+		<object ref="50"/>
+
+		<object ref="57"/>
+
+		<object ref="58"/>
+
+		<object ref="59"/>
+
+		<object ref="60"/>
+
+		<object ref="84"/>
+
+		<object ref="85"/>
+
+		<object ref="86"/>
+
+		<object ref="32"/>
+
+		<object ref="105"/>
+
+		<object ref="92"/>
+
+		<object ref="100"/>
+
+		<object ref="38"/>
+
+		<object ref="39"/>
+
+		<object ref="61"/>
+
+		<object ref="62"/>
+		</list>
+	    </field>
+	    <field name="data"><list>
+		<object ref="5"/>
+
+		<object ref="8"/>
+
+		<object ref="11"/>
+
+		<object ref="14"/>
+
+		<object ref="17"/>
+
+		<object ref="20"/>
+
+		<object ref="23"/>
+		</list>
+	    </field>
+	    <field name="roles"><list>
+		<object ref="29"/>
+
+		<object ref="36"/>
+
+		<object ref="44"/>
+
+		<object ref="55"/>
+
+		<object ref="69"/>
+
+		<object ref="83"/>
+
+		<object ref="90"/>
+
+		<object ref="97"/>
+
+		<object ref="103"/>
+
+		<object ref="111"/>
+		</list>
+	    </field>
+	    <field name="goals"><list>
+		<object ref="124"/>
+
+		<object ref="132"/>
+
+		<object ref="45"/>
+
+		<object ref="56"/>
+
+		<object ref="125"/>
+
+		<object ref="30"/>
+
+		<object ref="91"/>
+
+		<object ref="98"/>
+
+		<object ref="104"/>
+
+		<object ref="126"/>
+
+		<object ref="72"/>
+
+		<object ref="71"/>
+
+		<object ref="70"/>
+
+		<object ref="46"/>
+
+		<object ref="114"/>
+
+		<object ref="113"/>
+
+		<object ref="112"/>
+
+		<object ref="127"/>
+
+		<object ref="159"/>
+		</list>
+	    </field>
+	    <field name="percepts"><list>
+		<object ref="77"/>
+
+		<object ref="78"/>
+
+		<object ref="79"/>
+
+		<object ref="80"/>
+
+		<object ref="40"/>
+
+		<object ref="51"/>
+
+		<object ref="63"/>
+
+		<object ref="64"/>
+
+		<object ref="65"/>
+
+		<object ref="66"/>
+
+		<object ref="52"/>
+
+		<object ref="87"/>
+
+		<object ref="33"/>
+
+		<object ref="94"/>
+
+		<object ref="41"/>
+		</list>
+	    </field>
+	    <field name="scenarios"><list>
+		<object ref="438"/>
+
+		<object ref="403"/>
+
+		<object ref="356"/>
+
+		<object ref="359"/>
+
+		<object ref="362"/>
+
+		<object ref="365"/>
+
+		<object ref="368"/>
+
+		<object ref="371"/>
+
+		<object ref="374"/>
+
+		<object ref="386"/>
+
+		<object ref="388"/>
+
+		<object ref="390"/>
+
+		<object ref="392"/>
+
+		<object ref="394"/>
+
+		<object ref="435"/>
+
+		<object ref="405"/>
+
+		<object ref="383"/>
+
+		<object ref="401"/>
+
+		<object ref="407"/>
+
+		<object ref="417"/>
+
+		<object ref="419"/>
+
+		<object ref="421"/>
+
+		<object ref="423"/>
+		</list>
+	    </field>
+	    <field name="steps"><list>
+		<object type="Step" id="538">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=18&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">18</field>
+		    </base>
+
+		</object>
+
+		<object type="Step" id="539">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=21&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">21</field>
+		    </base>
+
+		</object>
+
+		<object type="Step" id="540">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=23&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">23</field>
+		    </base>
+
+		</object>
+
+		<object type="Step" id="541">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=25&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">25</field>
+		    </base>
+
+		</object>
+
+		<object ref="375"/>
+
+		<object ref="376"/>
+
+		<object ref="377"/>
+
+		<object ref="379"/>
+
+		<object ref="378"/>
+
+		<object type="Step" id="542">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=84&gt;</field>
+			<field name="description">Schedules the delivery through an external delivery service.</field>
+			<field name="uniqueId">84</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="368"/>
+		    </field>
+		    <field name="dataWritten"><list>
+			<object ref="23"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="44"/>
+			</list>
+		    </field>
+		</object>
+
+		<object ref="387"/>
+
+		<object ref="389"/>
+
+		<object ref="391"/>
+
+		<object type="Step" id="543">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=97&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">97</field>
+		    </base>
+
+		</object>
+
+		<object ref="393"/>
+
+		<object ref="439"/>
+
+		<object ref="440"/>
+
+		<object ref="442"/>
+
+		<object type="Step" id="544">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=109&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">109</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="30"/>
+		    </field>
+		</object>
+
+		<object type="Step" id="545">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=112&gt;</field>
+			<field name="description">Plants seeds in the appropriate fields.</field>
+			<field name="uniqueId">112</field>
+		    </base>
+
+		    <field name="dataWritten"><list>
+			<object ref="5"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="29"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="546">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=113&gt;</field>
+			<field name="description">Activates irrigation systems based on soil/weather conditions.</field>
+			<field name="uniqueId">113</field>
+		    </base>
+
+		    <field name="dataRead"><list>
+			<object ref="5"/>
+			</list>
+		    </field>
+		    <field name="dataWritten"><list>
+			<object ref="5"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="90"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="547">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=115&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">115</field>
+		    </base>
+
+		</object>
+
+		<object type="Step" id="548">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=117&gt;</field>
+			<field name="description">Handles the process of detecting when a crop is mature, harvesting and moving to a storage place.</field>
+			<field name="uniqueId">117</field>
+		    </base>
+
+		    <field name="dataRead"><list>
+			<object ref="5"/>
+			</list>
+		    </field>
+		    <field name="dataWritten"><list>
+			<object ref="17"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="97"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="549">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=124&gt;</field>
+			<field name="description">Sensors/cameras/drones detect crop maturity status.</field>
+			<field name="uniqueId">124</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="405"/>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="111"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="550">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=125&gt;</field>
+			<field name="description">Sends an alert that harvesting can be initiated.</field>
+			<field name="uniqueId">125</field>
+		    </base>
+
+		    <field name="roles"><list>
+			<object ref="111"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="551">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=126&gt;</field>
+			<field name="description">Transports harvested produce to storage facility.</field>
+			<field name="uniqueId">126</field>
+		    </base>
+
+		    <field name="dataWritten"><list>
+			<object ref="5"/>
+
+			<object ref="17"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="36"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="552">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=130&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">130</field>
+		    </base>
+
+		</object>
+
+		<object type="Step" id="553">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=132&gt;</field>
+			<field name="description">Weather sensors report environmental data with certain frequency to support irrigation decisions.</field>
+			<field name="uniqueId">132</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="403"/>
+		    </field>
+		    <field name="dataRead"><list>
+			<object ref="14"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="111"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="554">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=133&gt;</field>
+			<field name="description">Soil sensors report soil data (moisture, nutrients) with certain frequency to support harvesting decisions.</field>
+			<field name="uniqueId">133</field>
+		    </base>
+
+		    <field name="dataRead"><list>
+			<object ref="8"/>
+			</list>
+		    </field>
+		    <field name="roles"><list>
+			<object ref="111"/>
+			</list>
+		    </field>
+		</object>
+
+		<object type="Step" id="555">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=157&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">157</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="126"/>
+		    </field>
+		</object>
+
+		<object type="Step" id="556">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=159&gt;</field>
+			<field name="description">Observe and assess conditions affecting crop growth to support timely and informed harvesting.</field>
+			<field name="uniqueId">159</field>
+		    </base>
+
+		    <field name="roles"><list>
+			<object ref="69"/>
+			</list>
+		    </field>
+		</object>
+
+		<object ref="395"/>
+
+		<object ref="441"/>
+
+		<object ref="402"/>
+
+		<object ref="404"/>
+
+		<object ref="406"/>
+
+		<object type="Step" id="557">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=224&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">224</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="71"/>
+		    </field>
+		</object>
+
+		<object type="Step" id="558">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=225&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">225</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="72"/>
+		    </field>
+		</object>
+
+		<object type="Step" id="559">
+		    <base type="Entity">
+			<field name="name">&lt;Prometheus unique entity name au.edu.rmit.cs.prometheus.datamodel.jacob.Step ID=226&gt;</field>
+			<field name="description"></field>
+			<field name="uniqueId">226</field>
+		    </base>
+
+		    <field name="step">
+			<object ref="70"/>
+		    </field>
+		</object>
+
+		<object ref="418"/>
+
+		<object ref="420"/>
+
+		<object ref="422"/>
+		</list>
+	    </field>
+	    <field name="systemOverviewDiagramData">
+		<object type="SystemOverviewDiagramData" id="560">
+		    <field name="percepts"><list>
+			<object ref="77"/>
+
+			<object ref="78"/>
+
+			<object ref="79"/>
+
+			<object ref="80"/>
+
+			<object ref="40"/>
+
+			<object ref="51"/>
+
+			<object ref="63"/>
+
+			<object ref="64"/>
+
+			<object ref="65"/>
+
+			<object ref="66"/>
+
+			<object ref="52"/>
+
+			<object ref="87"/>
+
+			<object ref="33"/>
+
+			<object ref="94"/>
+
+			<object ref="41"/>
+			</list>
+		    </field>
+		    <field name="actions"><list>
+			<object ref="73"/>
+
+			<object ref="74"/>
+
+			<object ref="75"/>
+
+			<object ref="76"/>
+
+			<object ref="115"/>
+
+			<object ref="116"/>
+
+			<object ref="117"/>
+
+			<object ref="37"/>
+
+			<object ref="47"/>
+
+			<object ref="48"/>
+
+			<object ref="49"/>
+
+			<object ref="50"/>
+
+			<object ref="57"/>
+
+			<object ref="58"/>
+
+			<object ref="59"/>
+
+			<object ref="60"/>
+
+			<object ref="84"/>
+
+			<object ref="85"/>
+
+			<object ref="86"/>
+
+			<object ref="31"/>
+
+			<object ref="99"/>
+
+			<object ref="32"/>
+
+			<object ref="105"/>
+
+			<object ref="92"/>
+
+			<object ref="100"/>
+
+			<object ref="38"/>
+
+			<object ref="39"/>
+
+			<object ref="93"/>
+
+			<object ref="61"/>
+
+			<object ref="62"/>
+			</list>
+		    </field>
+		    <field name="notes"><list>
+			<object ref="489"/>
+			</list>
+		    </field>
+		</object>
+	    </field>
+	    <field name="rolesDiagramData">
+		<object type="RolesDiagramData" id="561">
+		    <field name="goals"><list>
+			<object ref="132"/>
+
+			<object ref="46"/>
+
+			<object ref="125"/>
+
+			<object ref="98"/>
+
+			<object ref="91"/>
+
+			<object ref="124"/>
+
+			<object ref="104"/>
+
+			<object ref="126"/>
+
+			<object ref="71"/>
+
+			<object ref="72"/>
+
+			<object ref="70"/>
+
+			<object ref="30"/>
+
+			<object ref="56"/>
+
+			<object ref="45"/>
+
+			<object ref="127"/>
+
+			<object ref="112"/>
+
+			<object ref="113"/>
+
+			<object ref="114"/>
+			</list>
+		    </field>
+		    <field name="actions"><list>
+			<object ref="73"/>
+
+			<object ref="74"/>
+
+			<object ref="75"/>
+
+			<object ref="76"/>
+
+			<object ref="115"/>
+
+			<object ref="116"/>
+
+			<object ref="117"/>
+
+			<object ref="37"/>
+
+			<object ref="47"/>
+
+			<object ref="48"/>
+
+			<object ref="49"/>
+
+			<object ref="50"/>
+
+			<object ref="57"/>
+
+			<object ref="58"/>
+
+			<object ref="59"/>
+
+			<object ref="60"/>
+
+			<object ref="84"/>
+
+			<object ref="85"/>
+
+			<object ref="86"/>
+
+			<object ref="31"/>
+
+			<object ref="99"/>
+
+			<object ref="32"/>
+
+			<object ref="105"/>
+
+			<object ref="92"/>
+
+			<object ref="100"/>
+
+			<object ref="38"/>
+
+			<object ref="39"/>
+
+			<object ref="93"/>
+
+			<object ref="61"/>
+
+			<object ref="62"/>
+			</list>
+		    </field>
+		    <field name="percepts"><list>
+			<object ref="77"/>
+
+			<object ref="78"/>
+
+			<object ref="79"/>
+
+			<object ref="80"/>
+
+			<object ref="40"/>
+
+			<object ref="51"/>
+
+			<object ref="63"/>
+
+			<object ref="64"/>
+
+			<object ref="65"/>
+
+			<object ref="66"/>
+
+			<object ref="52"/>
+
+			<object ref="87"/>
+
+			<object ref="33"/>
+
+			<object ref="94"/>
+
+			<object ref="41"/>
+			</list>
+		    </field>
+		    <field name="notes"><list>
+			<object ref="351"/>
+			</list>
+		    </field>
+		</object>
+	    </field>
+	    <field name="analysisOverviewDiagramData">
+		<object type="AnalysisOverviewDiagramData" id="562">
+		</object>
+	    </field>
+	    <field name="notes"><list>
+		<object ref="199"/>
+
+		<object ref="156"/>
+
+		<object ref="26"/>
+
+		<object ref="212"/>
+
+		<object ref="215"/>
+
+		<object ref="190"/>
+
+		<object ref="108"/>
+
+		<object ref="248"/>
+
+		<object ref="147"/>
+
+		<object ref="489"/>
+
+		<object ref="351"/>
+		</list>
+	    </field>
+	    <field name="scenariosDiagramData">
+		<object type="ScenariosDiagramData" id="563">
+		</object>
+	    </field>
+	    <field name="goalOverviewDiagramData">
+		<object type="GoalOverviewDiagramData" id="564">
+		    <field name="notes"><list>
+			<object ref="156"/>
+
+			<object ref="147"/>
+			</list>
+		    </field>
+		</object>
+	    </field>
+	    <field name="dataCouplingDiagramData">
+		<object type="DataCouplingDiagramData" id="565">
+		    <field name="notes"><list>
+			<object ref="26"/>
+
+			<object ref="108"/>
+			</list>
+		    </field>
+		</object>
+	    </field>
+	    <field name="agentRoleCouplingDiagramData">
+		<object type="AgentRoleCouplingDiagramData" id="566">
+		    <field name="notes"><list>
+			<object ref="190"/>
+			</list>
+		    </field>
+		</object>
+	    </field>
+	    <field name="agentOverviewDiagramData">
+		<object type="AgentOverviewDiagramData" id="567">
+		</object>
+	    </field>
+	    <field name="capabilityOverviewDiagramData">
+		<object type="CapabilityOverviewDiagramData" id="568">
+		</object>
+	    </field>
+	    <field name="deletedEntitiesForCodeGen"><list>
+		<object type="Entity" id="569">
+		    <field name="name">Farmer Agent</field>
+		</object>
+
+		<object type="Entity" id="570">
+		    <field name="name">Farmer</field>
+		</object>
+
+		<object type="Entity" id="571">
+		    <field name="name">Saller</field>
+		</object>
+
+		<object type="Entity" id="572">
+		    <field name="name">Farm machine</field>
+		</object>
+
+		<object type="Entity" id="573">
+		    <field name="name">Storage manager</field>
+		</object>
+
+		<object type="Entity" id="574">
+		    <field name="name">Harvest machine</field>
+		</object>
+
+		<object type="Entity" id="575">
+		    <field name="name">Delivery manager</field>
+		</object>
+
+		<object type="Entity" id="576">
+		    <field name="name">Manage farm</field>
+		</object>
+
+		<object type="Entity" id="577">
+		    <field name="name">Grow crops</field>
+		</object>
+
+		<object type="Entity" id="578">
+		    <field name="name">Decide crops</field>
+		</object>
+
+		<object type="Entity" id="579">
+		    <field name="name">Plant seeds</field>
+		</object>
+
+		<object type="Entity" id="580">
+		    <field name="name">Manage farm</field>
+		</object>
+
+		<object type="Entity" id="581">
+		    <field name="name">Grow crops</field>
+		</object>
+
+		<object type="Entity" id="582">
+		    <field name="name">Monitor growth</field>
+		</object>
+
+		<object type="Entity" id="583">
+		    <field name="name">Plant seeds</field>
+		</object>
+
+		<object type="Entity" id="584">
+		    <field name="name">Manage farm</field>
+		</object>
+
+		<object type="Entity" id="585">
+		    <field name="name">Decide crops</field>
+		</object>
+
+		<object type="Entity" id="586">
+		    <field name="name">Based on weather conditions and needs of customer, decide which crops to be planted.</field>
+		</object>
+
+		<object type="Entity" id="587">
+		    <field name="name">Based on weather conditions and needs of customer, decide which crops to be planted. scenario</field>
+		</object>
+
+		<object type="Entity" id="588">
+		    <field name="name">Move harvested crops to storage</field>
+		</object>
+
+		<object type="Entity" id="589">
+		    <field name="name">Maintain inventory</field>
+		</object>
+
+		<object type="Entity" id="590">
+		    <field name="name">Plant seeds scenario</field>
+		</object>
+
+		<object type="Entity" id="591">
+		    <field name="name">Plant seeds</field>
+		</object>
+
+		<object type="Entity" id="592">
+		    <field name="name">Monitor growth</field>
+		</object>
+
+		<object type="Entity" id="593">
+		    <field name="name">Harvest crops</field>
+		</object>
+
+		<object type="Entity" id="594">
+		    <field name="name">Decide crops scenario</field>
+		</object>
+
+		<object type="Entity" id="595">
+		    <field name="name">Decide crops</field>
+		</object>
+
+		<object type="Entity" id="596">
+		    <field name="name">Handle payment</field>
+		</object>
+
+		<object type="Entity" id="597">
+		    <field name="name">Analyze weather</field>
+		</object>
+
+		<object type="Entity" id="598">
+		    <field name="name"></field>
+		</object>
+
+		<object type="Entity" id="599">
+		    <field name="name">Monitor growth</field>
+		</object>
+
+		<object type="Entity" id="600">
+		    <field name="name">Monitor weather</field>
+		</object>
+
+		<object type="Entity" id="601">
+		    <field name="name">Handle payment</field>
+		</object>
+
+		<object type="Entity" id="602">
+		    <field name="name">Schedule delivery</field>
+		</object>
+
+		<object type="Entity" id="603">
+		    <field name="name">scen</field>
+		</object>
+
+		<object type="Entity" id="604">
+		    <field name="name">scen scenario</field>
+		</object>
+
+		<object type="Entity" id="605">
+		    <field name="name">Monitor progress.</field>
+		</object>
+
+		<object type="Entity" id="606">
+		    <field name="name">Assign task to a machine.</field>
+		</object>
+
+		<object type="Entity" id="607">
+		    <field name="name">Check seed inventory.</field>
+		</object>
+
+		<object type="Entity" id="608">
+		    <field name="name">Customer buys available produce</field>
+		</object>
+
+		<object type="Entity" id="609">
+		    <field name="name">Recommend suitable crops scenario</field>
+		</object>
+
+		<object type="Entity" id="610">
+		    <field name="name">Recommend suitable crops</field>
+		</object>
+
+		<object type="Entity" id="611">
+		    <field name="name">Recommend suitable crops for the next season</field>
+		</object>
+
+		<object type="Entity" id="612">
+		    <field name="name">Monitor weather conditions</field>
+		</object>
+
+		<object type="Entity" id="613">
+		    <field name="name">Monitor crop growth via smart sensors</field>
+		</object>
+
+		<object type="Entity" id="614">
+		    <field name="name">Automatically irrigate crops based on sensor data</field>
+		</object>
+
+		<object type="Entity" id="615">
+		    <field name="name">Check inventory before confirming a sale or recommendation</field>
+		</object>
+
+		<object type="Entity" id="616">
+		    <field name="name">Customer purchases available produce</field>
+		</object>
+
+		<object type="Entity" id="617">
+		    <field name="name">Order is received and processed</field>
+		</object>
+
+		<object type="Entity" id="618">
+		    <field name="name">Harvest when crop is ready</field>
+		</object>
+
+		<object type="Entity" id="619">
+		    <field name="name">Monitor soil conditions</field>
+		</object>
+
+		<object type="Entity" id="620">
+		    <field name="name">Begin crop plan execution</field>
+		</object>
+
+		<object type="Entity" id="621">
+		    <field name="name">Customer buys available produce scenario</field>
+		</object>
+
+		<object type="Entity" id="622">
+		    <field name="name">Order is received and processed scenario</field>
+		</object>
+
+		<object type="Entity" id="623">
+		    <field name="name">Reserve produce in inventory</field>
+		</object>
+
+		<object type="Entity" id="624">
+		    <field name="name">Receive order from sale</field>
+		</object>
+
+		<object type="Entity" id="625">
+		    <field name="name">Check stock</field>
+		</object>
+
+		<object type="Entity" id="626">
+		    <field name="name">Create order</field>
+		</object>
+
+		<object type="Entity" id="627">
+		    <field name="name">Schedule delivery</field>
+		</object>
+
+		<object type="Entity" id="628">
+		    <field name="name">Handle payment</field>
+		</object>
+
+		<object type="Entity" id="629">
+		    <field name="name">Customer confirms purchase</field>
+		</object>
+
+		<object type="Entity" id="630">
+		    <field name="name">Customer views available produce</field>
+		</object>
+
+		<object type="Entity" id="631">
+		    <field name="name">Update order records</field>
+		</object>
+
+		<object type="Entity" id="632">
+		    <field name="name">Update inventory status scenario</field>
+		</object>
+
+		<object type="Entity" id="633">
+		    <field name="name">Update inventory status</field>
+		</object>
+
+		<object type="Entity" id="634">
+		    <field name="name">Check inventory before confirming a sale or recommendation scenario</field>
+		</object>
+
+		<object type="Entity" id="635">
+		    <field name="name">Begin crop plan execution scenario</field>
+		</object>
+
+		<object type="Entity" id="636">
+		    <field name="name">Alert harvest is ready</field>
+		</object>
+
+		<object type="Entity" id="637">
+		    <field name="name">Detect maturity of crop</field>
+		</object>
+
+		<object type="Entity" id="638">
+		    <field name="name">Harvest when crop is ready</field>
+		</object>
+
+		<object type="Entity" id="639">
+		    <field name="name">Analyze weather conditions</field>
+		</object>
+
+		<object type="Entity" id="640">
+		    <field name="name">Decide seeds to plant</field>
+		</object>
+
+		<object type="Entity" id="641">
+		    <field name="name">Update inventory</field>
+		</object>
+
+		<object type="Entity" id="642">
+		    <field name="name">Check stock</field>
+		</object>
+
+		<object type="Entity" id="643">
+		    <field name="name">Transport to storage</field>
+		</object>
+
+		<object type="Entity" id="644">
+		    <field name="name">Monitor environment scenario</field>
+		</object>
+
+		<object type="Entity" id="645">
+		    <field name="name">Analyze weather conditions</field>
+		</object>
+
+		<object type="Entity" id="646">
+		    <field name="name">Alert harvest is ready</field>
+		</object>
+
+		<object type="Entity" id="647">
+		    <field name="name">Analyze soil conditions</field>
+		</object>
+
+		<object type="Entity" id="648">
+		    <field name="name">Customer purchases available produce scenario</field>
+		</object>
+
+		<object type="Entity" id="649">
+		    <field name="name">Automatically irrigate crops based on sensor data scenario</field>
+		</object>
+
+		<object type="Entity" id="650">
+		    <field name="name">Monitor soil conditions scenario</field>
+		</object>
+
+		<object type="Entity" id="651">
+		    <field name="name">Monitor crop growth via smart sensors scenario</field>
+		</object>
+
+		<object type="Entity" id="652">
+		    <field name="name">Schedule delivery</field>
+		</object>
+
+		<object type="Entity" id="653">
+		    <field name="name">GrowthCropsAPI</field>
+		</object>
+
+		<object type="Entity" id="654">
+		    <field name="name">Crop management role</field>
+		</object>
+
+		<object type="Entity" id="655">
+		    <field name="name">Q: Do we need a role acting as a manager? because there's no specific scenario apart from coordintating other roles inside (planting, irrigating and harvesting)</field>
+		</object>
+
+		<object type="Entity" id="656">
+		    <field name="name">Manage farm</field>
+		</object>
+
+		<object type="Entity" id="657">
+		    <field name="name">Analyze orders history</field>
+		</object>
+
+		<object type="Entity" id="658">
+		    <field name="name">Analyze soil conditions scenario</field>
+		</object>
+
+		<object type="Entity" id="659">
+		    <field name="name">Monitor environment scenario</field>
+		</object>
+
+		<object type="Entity" id="660">
+		    <field name="name">Irrigate seeds scenario</field>
+		</object>
+
+		<object type="Entity" id="661">
+		    <field name="name">Plant seeds scenario</field>
+		</object>
+
+		<object type="Entity" id="662">
+		    <field name="name">Execute crop plan scenario</field>
+		</object>
+
+		<object type="Entity" id="663">
+		    <field name="name">Analyze weather conditions</field>
+		</object>
+
+		<object type="Entity" id="664">
+		    <field name="name">Analyze/Detect maturity of crop</field>
+		</object>
+
+		<object type="Entity" id="665">
+		    <field name="name">Analyze soild data</field>
+		</object>
+
+		<object type="Entity" id="666">
+		    <field name="name">Monitor crop growth</field>
+		</object>
+
+		<object type="Entity" id="667">
+		    <field name="name">Alert harvest is ready scenario</field>
+		</object>
+
+		<object type="Entity" id="668">
+		    <field name="name">Harvest when crop is ready scenario</field>
+		</object>
+
+		<object type="Entity" id="669">
+		    <field name="name">Transport to storage scenario</field>
+		</object>
+		</list>
+	    </field>
+	</object>
+    </field>
+</object>
+
+</jacob>

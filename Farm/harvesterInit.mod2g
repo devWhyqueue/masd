@@ -1,0 +1,15 @@
+% harvesterInit.mod2g — initial beliefs & goals for Harvester
+
+use farm as knowledge.
+
+module harvesterInit {
+    % Initial beliefs for the Harvester agent.
+    % The machine starts with no pending order and knows the fields.
+
+    if true then insert(field(f1)).
+    if true then insert(field(f2)).
+
+    % No active goal is adopted initially;
+    % it will receive harvest(Field) messages at run‑time
+    % which will likely trigger goal adoption through rules in the main harvester module.
+}

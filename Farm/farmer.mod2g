@@ -1,0 +1,27 @@
+use farm as knowledge.
+
+module farmer {
+    %------------------------------------------------------------------
+    % 1. Ask Inventory for current free capacity
+    %------------------------------------------------------------------
+    if goal(harvest_all_ready), bel(ready(Field)), not(bel(requested_capacity(Field))) then
+        (inventory).send!(query_free_cap(_)) + insert(requested_capacity(Field)).
+
+    %------------------------------------------------------------------
+    % 2. Order harvest if enough space
+    %------------------------------------------------------------------
+    if goal(harvest_all_ready), bel(ready(Field)), bel(est_yield(Field,Qty)), bel(requested_capacity(Field)), percep(free_cap(Cap)), eval(Cap >= Qty) then
+        (harvester).send!(harvest(Field)) + delete(requested_capacity(Field)) + insert(order_sent(Field)).
+
+    %------------------------------------------------------------------
+    % 3. Retry later if capacity insufficient
+    %------------------------------------------------------------------
+    if goal(harvest_all_ready), bel(ready(Field)), bel(est_yield(Field,Qty)), bel(requested_capacity(Field)), percep(free_cap(Cap)), eval(Cap < Qty) then
+        delete(requested_capacity(Field)).
+
+    %------------------------------------------------------------------
+    % 4. Drop goal when done
+    %------------------------------------------------------------------
+    if goal(harvest_all_ready), not(bel(ready(_))) then
+        drop(harvest_all_ready).
+}

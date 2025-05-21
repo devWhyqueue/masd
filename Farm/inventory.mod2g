@@ -1,0 +1,69 @@
+% inventory.mod2g — main behaviour for the Inventory agent
+ use farm as knowledge.
+ 
+module inventory {
+    % For max_capacity/1, etc.
+    % Assume actions like store_items(Crop, Qty) are defined in inventory_actions.act2g
+    % use inventory_actions as actionspec.
+
+    % --- Beliefs inventory agent manages ---
+    % bel(max_capacity(Total))
+    % bel(free_cap(CurrentFree))
+    % bel(stored(Crop, Quantity))
+    % bel(processing_storage_request(Sender, Crop, Qty)) - To track active requests
+    % bel(storage_successful(Crop, Qty)) - Inserted by store_items action
+
+    % ==================================================================
+    % 1. HANDLE STORE REQUESTS FROM HARVESTER
+    % ==================================================================
+
+    % 1.1 Receive request to store items and attempt internal storage action
+    %     Assumes message is like: harvester requests store(Crop, Qty)
+    if percep(Sender, request, store(Crop, QtyToStore)), % E.g., Sender is 'harvester'
+       not(bel(processing_storage_request(_, Crop, QtyToStore))) % Avoid duplicate processing
+    then
+        insert(processing_storage_request(Sender, Crop, QtyToStore)) +
+        store_items(Crop, QtyToStore). % Attempt the internal action
+
+    % 1.2 Storage action was successful (precondition Cap >= Qty met in action)
+    if bel(processing_storage_request(Sender, Crop, QtyStored)),
+       bel(storage_successful(Crop, QtyStored)) % This belief is inserted by 'store_items' on success
+    then
+        (Sender).send!(inform(stored(Crop, QtyStored))) + % Inform original sender
+        delete(processing_storage_request(Sender, Crop, QtyStored)) +
+        delete(storage_successful(Crop, QtyStored)).
+
+    % 1.3 Storage action failed (e.g., precondition Cap >= Qty in action was NOT met)
+    %     This rule fires if 'store_items' did NOT insert 'storage_successful'.
+    %     We need a way to detect this. One common way: if 'processing_storage_request'
+    %     exists for a cycle but 'storage_successful' for it does not appear, assume failure.
+    %     This can be fragile. A better way is if the 'store_items' action could
+    %     explicitly insert a 'storage_failed_due_to_capacity(Crop, Qty)' belief.
+    %     For now, let's assume the action itself handles capacity check in 'pre'.
+    %     If the 'store_items' action's 'pre' condition (Cap >= Qty) fails, the action
+    %     doesn't run, and 'storage_successful' is not inserted.
+    if bel(processing_storage_request(Sender, Crop, QtyToStore)),
+       not(bel(storage_successful(Crop, QtyToStore))), % And success has not been noted
+       bel(free_cap(CurrentFree)),                    % Get current capacity to confirm reason
+       eval(CurrentFree < QtyToStore)                 % Double check it was capacity
+    then
+        (Sender).send!(inform(capacity_full(Crop, QtyToStore))) + % Inform original sender
+        delete(processing_storage_request(Sender, Crop, QtyToStore)).
+        % No need to delete storage_successful as it was never inserted.
+
+    % ==================================================================
+    % 2. ANSWER CAPACITY QUERIES FROM FARMER
+    % ==================================================================
+
+    %    Assumes message is like: farmer queries free_cap(Var)
+    if percep(Sender, query_ref, free_cap(CapVar)), % E.g., Sender is 'farmer'
+       bel(free_cap(CurrentCapacity)) % Agent has belief about its current capacity
+    then
+        % To answer query_ref, the variable in the perceived message needs to be unified.
+        % The typical response is an inform message with the value.
+        (Sender).send!(inform(free_cap(CurrentCapacity))). % Send current capacity back
+        % The CapVar in the percep is implicitly bound by the query mechanism
+        % if the system supports that directly, or we construct the response.
+        % The above 'inform' is the standard way.
+
+}

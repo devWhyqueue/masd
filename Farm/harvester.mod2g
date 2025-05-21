@@ -1,0 +1,98 @@
+% harvester.mod2g — main behaviour for the Harvester agent
+
+use farm as knowledge.
+
+module harvester {
+% For field/1, crop/2, est_yield/2
+    % We'll assume actions like harvest(Field) are defined elsewhere and imported
+    % e.g., use harvester_actions as actionspec.
+
+    % --- Beliefs the harvester might manage ---
+    % bel(processing_harvest(Field)) - Currently harvesting this field
+    % bel(waiting_for_storage_confirmation(Field)) - Harvested, waiting for inventory
+    % bel(harvest_successful(Field, CropType, Yield)) - Result of successful internal harvest action
+
+    % ==========================
+    %   HARVEST-ORDER HANDLING
+    % ==========================
+
+    % 1. Receive harvest order from farmer and start processing
+    %    Assumes message is like: farmer requested harvest(Field)
+    if percep(farmer, request, harvest(Field)), % Or whatever the actual performative is
+       not(bel(processing_harvest(Field))),
+       not(bel(waiting_for_storage_confirmation(Field))) % Don't start if already processing/waiting for this field
+    then
+        insert(processing_harvest(Field)) +
+        harvest(Field). % Execute the internal action 'harvest'
+
+    % 2. Internal harvest action succeeded: now ask Inventory to store the produce.
+    if bel(processing_harvest(Field)),
+       bel(harvest_successful(Field, CropType, Yield)) % This belief is inserted by the 'harvest' action on success
+    then
+        (inventory).send!(request(store(Field, CropType, Yield))) + % Send crop type and yield
+        delete(processing_harvest(Field)) +
+        delete(harvest_successful(Field, CropType, Yield)) + % Clean up success marker
+        insert(waiting_for_storage_confirmation(Field)).
+
+    % 3. Internal harvest action failed (if 'harvest' action could signify failure directly)
+    %    This rule depends on how your 'harvest(Field)' action indicates failure.
+    %    If 'harvest(Field)' simply doesn't insert 'harvest_successful' on failure,
+    %    you might need a timeout or a different mechanism.
+    %    Alternatively, the 'harvest' action could insert 'harvest_failed(Field)'.
+    if bel(processing_harvest(Field)),
+       bel(harvest_failed_internally(Field)) % Assuming 'harvest' action inserts this on failure
+    then
+        (farmer).send!(inform(harvest_operation_failed(Field))) + % Inform farmer of failure
+        delete(processing_harvest(Field)) +
+        delete(harvest_failed_internally(Field)).
+
+    % 4. If the 'harvest(Field)' action didn't run (e.g. its preconditions failed)
+    %    and we still have 'processing_harvest(Field)' without 'harvest_successful',
+    %    this implies a failure before or during the action attempt.
+    %    This is a bit tricky and often needs careful design of action feedback.
+    %    A simpler way is if the 'harvest' action is GUARANTEED to insert
+    %    either harvest_successful or harvest_failed_internally.
+    %    If not, you might need a timeout rule for 'processing_harvest'.
+    %
+    %    For now, we'll assume rule 3 handles explicit internal failures.
+    %    If the 'harvest(Field)' action itself doesn't even start due to its own
+    %    preconditions, the 'processing_harvest(Field)' belief might linger.
+    %    One way: if 'harvest(Field)' has preconditions, the rule calling it
+    %    should ideally check them.
+
+    % =====================================
+    %   INVENTORY INTERACTION HANDLING
+    % =====================================
+
+    % 5. Receive confirmation of storage from Inventory
+    %    Assumes message is like: inventory informed stored(Field, Qty)
+    if bel(waiting_for_storage_confirmation(Field)),
+       percep(inventory, inform, stored(Field, _Qty)) % Or 'tell' if that's your convention
+    then
+        delete(waiting_for_storage_confirmation(Field)) +
+        % Optionally, log success or inform farmer that full cycle is complete
+        print("Harvester: ", Field, " successfully harvested and stored.").
+
+    % 6. Receive notification that inventory is full
+    %    Assumes message is like: inventory informed capacity_full
+    if bel(waiting_for_storage_confirmation(Field)), % If we were waiting to store for a specific field
+       percep(inventory, inform, capacity_full)
+    then
+        (farmer).send!(inform(storage_failed_capacity_full(Field))) + % Inform farmer
+        delete(waiting_for_storage_confirmation(Field)) +
+        print("Harvester: Inventory full, cannot store produce for ", Field, ".").
+
+    % 7. General notification if inventory is full (not tied to a specific field we were waiting for)
+    if percep(inventory, inform, capacity_full),
+       not(bel(waiting_for_storage_confirmation(_))) % Not already handled by rule 6
+    then
+        print("Harvester: Received general notification - Inventory is full.").
+        % Potentially adopt a goal to wait or inform farmer generally.
+
+    % --- Cleanup/Timeout for processing_harvest (Example) ---
+    % This is a more advanced concept if actions can get stuck
+    % if bel(processing_harvest(Field)), bel(timer_expired_for_harvest(Field)) then
+    %    (farmer).send!(inform(harvest_operation_failed(Field, timeout))) +
+    %    delete(processing_harvest(Field)).
+
+}

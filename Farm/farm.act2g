@@ -1,0 +1,9 @@
+use farm as knowledge.
+
+define harvest(Field) as internal with
+    pre  { ready(Field), est_yield(Field,Qty), free_cap(Cap), Cap >= Qty }
+    post { not(ready(Field)), harvested(Field) }
+
+define store(Crop,Qty) as internal with
+    pre  { harvested(Field), est_yield(Field,Qty), free_cap(Cap), Cap >= Qty }
+    post { stored(Crop,Qty) }

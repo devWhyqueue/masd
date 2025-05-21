@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% farmEvents.mod2g — generic message‑handling rules shared by all agents  %
+%                                                                          %
+% Import this module in the main module of each agent (`use farmEvents`).   %
+% The rules are guarded so that they only fire when the local agent’s       %
+% beliefs/actions make sense; they are patterned on the Coffee sample.      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+module farmEvents
+
+% ---------------------------------------------------------------------------
+% I.  CAPACITY QUERY  (Farmer ↔ Inventory)                                   
+% ---------------------------------------------------------------------------
+
+on message(   from(?Sender),
+              performative(request),
+              content(free_capacity)  )
+   when  query_free_cap(?Cap)   % internal action succeeds; unifies ?Cap
+ do {
+   send(?Sender, inform, free_cap(?Cap)).
+ }.
+
+% ---------------------------------------------------------------------------
+% II. HARVEST ORDER  (Farmer → Harvester)                                    
+% ---------------------------------------------------------------------------
+
+on message(   from(?Sender),
+              performative(request),
+              content(harvest(?Field))  )
+ do {
+   % Attempt to harvest; harvest/1 is an internal action declared in farm.act2g
+   harvest(?Field),
+   % Inform the Farmer that the field is harvested …
+   send(?Sender, inform, harvested(?Field)),
+   % … then compute the expected yield and request storage from Inventory.
+   est_yield(?Field, ?Qty),
+   send(inventory, request, store(grain, ?Qty)).
+ }.
+
+% ---------------------------------------------------------------------------
+% III. STORE PRODUCE  (Harvester → Inventory)                                
+% ---------------------------------------------------------------------------
+
+% 1. Success branch ----------------------------------------------------------
+
+on message(   from(?Sender),
+              performative(request),
+              content(store(?Crop, ?Qty))  )
+   when  free_cap(?Cap) & (?Cap >= ?Qty)
+ do {
+   store(?Crop, ?Qty),               % internal action updates free_cap/1
+   send(?Sender, inform, stored(?Crop, ?Qty)).
+ }.
+
+% 2. Failure branch: not enough capacity ------------------------------------
+
+on message(   from(?Sender),
+              performative(request),
+              content(store(?Crop, ?Qty))  )
+   when  free_cap(?Cap) & (?Cap < ?Qty)
+ do {
+   send(?Sender, failure, capacity_full).
+ }.
+
+% ---------------------------------------------------------------------------
+% IV. CAPACITY CONFIRMATION  (Inventory → Farmer) — optional handler         
+% ---------------------------------------------------------------------------
+
+on message(   from(inventory),
+              performative(inform),
+              content(free_cap(?Cap))  )
+ do {
+   % Simply update (or reinforce) the belief; no action needed.
+   updateBel(free_cap(?Cap)).
+ }.
+
+% ---------------------------------------------------------------------------
+% V. STORAGE CONFIRMATION  (Inventory → Harvester/Farmer)                    
+% ---------------------------------------------------------------------------
+
+on message(   from(inventory),
+              performative(inform),
+              content(stored(?Crop, ?Qty))  )
+ do {
+   updateBel(stored(?Crop, ?Qty)).
+ }.
+
+on message(   from(inventory),
+              performative(failure),
+              content(capacity_full)  )
+ do {
+   % Record overflow; the Farmer may respond later.
+   updateBel(capacity_full).
+ }.

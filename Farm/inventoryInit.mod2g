@@ -1,0 +1,14 @@
+% inventoryInit.mod2g — initial beliefs for the Inventory agent
+
+use farm as knowledge.
+
+module inventoryInit {
+    % --- Storage capacity (Initial Beliefs) ---------------------------------
+    % Using 10000 instead of 10_000 for standard Prolog/GOAL number syntax
+    if true then insert(max_capacity(10000)).  % kilograms
+    if true then insert(free_cap(10000)).     % starts empty, full free capacity
+
+    % --- Current stock (none yet) ----------------------------------------
+    % No initial 'stored' facts are needed as per the comment.
+    % They will be added dynamically by the inventory agent's actions.
+}

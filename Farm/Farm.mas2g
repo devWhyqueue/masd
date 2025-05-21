@@ -1,0 +1,36 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% harvest.mas2g — multi‑agent system configuration                         %                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ================================
+%   Agent declarations
+% ================================
+
+define farmer as agent {
+    use farmerInit   as init module.
+    use farmer       as main module.
+    use farmEvents   as event module.
+}
+
+define harvester as agent {
+    use harvesterInit as init module.
+    use harvester     as main module.
+    use farmEvents    as event module.
+}
+
+define inventory as agent {
+    use inventoryInit as init module.
+    use inventory     as main module.
+    use farmEvents    as event module.
+}
+
+% ================================
+%   Launch policy
+% ================================
+
+launchpolicy {
+    launch farmer.
+    launch harvester.
+    launch inventory.
+}

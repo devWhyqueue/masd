@@ -1,0 +1,19 @@
+% farmerInit.mod2g
+
+use farm as knowledge.
+
+module farmerInit {
+    % --- Static domain knowledge (Initial Beliefs) -----------------------
+    if true then insert(field(f1)).
+    if true then insert(field(f2)).
+
+    % Estimated yields in kilograms
+    if true then insert(est_yield(f1, 3500)).
+    if true then insert(est_yield(f2, 4200)).
+
+    % Initial ready field
+    if true then insert(ready(f1)).
+
+    % --- Top‑level goal (Initial Goal) -----------------------------------
+    if true then adopt(harvest_all_ready).
+}
